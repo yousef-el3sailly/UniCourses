@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UniCourses | HTI</title>
+  <link rel="icon" type="image/png" href="images_flowchart/icons8-u-64.png">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style/style_flowchart.css">
+  
+  
+</head>
+<body>
+<div class="wrap">
+
+<header class="site">
+  <a href="index.html"><img class="logo" src="images_flowchart/496642426_1308607801050904_3912164005030205648_n.jpg" alt="شعار المعهد"></a>
+  <div class="brand">
+    <h1>HTI — UniCourses</h1>
+    <p class="muted"> Flowchart</p>
+  </div>
+  <div class="controls">
+    <button class="pill active" data-target="shared">المواد المشتركة</button>
+    <button class="pill" data-target="admin">إدارة الأعمال</button>
+    <button class="pill" data-target="acc">المحاسبة والمراجعة</button>
+    <button class="pill" data-target="mis">نظم المعلومات </button>
+    <button class="pill" data-target="mkt">التسويق</button>
+    <button class="pill" data-target="eco">الاقتصاد والتجارة الدولية</button>
+  </div>
+</header>
+
+<div class="hero">
+  <h2>شجرة مواد — لائحة 2021</h2>
+  <p>عرض مبسط ومنظم لكل تخصص  </p>
+</div>
+
+<!-- كل قسم -->
+<section id="shared" class="content">
+  <img class="flow-img" src="images_flowchart/business-shared.jpg" alt="المواد المشتركة">
+  <br>
+  <a href="images_flowchart/business-shared.jpg" download>
+    <button class="download-btn"><i class="fa-solid fa-download"></i> Download </button>
+  </a>
+</section>
+
+<section id="admin" class="content" hidden>
+  <img class="flow-img" src="images_flowchart/business-admin.jpg" alt="إدارة الأعمال">
+  <br>
+  <a href="images_flowchart/business-admin.jpg" download>
+    <button class="download-btn"><i class="fa-solid fa-download"></i> Download </button>
+  </a>
+</section>
+
+<section id="acc" class="content" hidden>
+  <img class="flow-img" src="images_flowchart/accounting.jpg" alt="المحاسبة والمراجعة">
+  <br>
+  <a href="images_flowchart/accounting.jpg" download>
+    <button class="download-btn"><i class="fa-solid fa-download"></i> Download </button>
+  </a>
+</section>
+
+<section id="mis" class="content" hidden>
+  <img class="flow-img" src="images_flowchart/bis.jpg" alt="نظم المعلومات ">
+  <br>
+  <a href="images_flowchart/bis.jpg" download>
+    <button class="download-btn"><i class="fa-solid fa-download"></i> Download </button>
+  </a>
+</section>
+
+<section id="mkt" class="content" hidden>
+  <img class="flow-img" src="images_flowchart/marketing.jpg" alt="التسويق">
+  <br>
+  <a href="images_flowchart/marketing.jpg" download>
+    <button class="download-btn"><i class="fa-solid fa-download"></i> Download </button>
+  </a>
+</section>
+
+<section id="eco" class="content" hidden>
+  <img class="flow-img" src="images_flowchart/economics.jpg" alt="الاقتصاد والتجارة الدولية">
+  <br>
+  <a href="images_flowchart/economics.jpg" download>
+    <button class="download-btn"><i class="fa-solid fa-download"></i> Download </button>
+  </a>
+</section>
+
+<!-- Footer -->
+    <footer style="text-align:center; font-family:'Cairo', sans-serif;">
+    <p style="margin:6px 0">© 2025 جميع الحقوق محفوظة</p>
+    <p style="margin:6px 0">
+        <b>Design &amp; Development</b>
+    </p>
+    <p style="margin:6px 0; color:#7dc3ff; font-weight:bold;">
+        YOUSEF A. EL3SAILLY | يوسف العسيلي
+    </p>
+</footer>
+</div>
+
+<script>
+const pills=document.querySelectorAll('.pill[data-target]');
+const sections=document.querySelectorAll('section.content');
+
+pills.forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    pills.forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    sections.forEach(sec=>{
+      sec.hidden = sec.id !== btn.dataset.target;
+    });
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+});
+</script>
+
+</body>
+</html>
