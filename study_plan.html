@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UniCourses | HTI</title>
+  <link rel="icon" type="image/png" href="images_flowchart/icons8-u-64.png">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style/study_plan.css">
+  
+</head>
+<body>
+<div class="wrap">
+
+<header class="site">
+  <a href="index.html"><img class="logo" src="images_flowchart/496642426_1308607801050904_3912164005030205648_n.jpg" alt="شعار المعهد"></a>
+  <div class="brand">
+    <h1>HTI — UniCourses</h1>
+    <p class="muted">study_plan</p>
+  </div>
+  <div class="controls">
+    <button class="pill active" data-target="shared">المواد المشتركة</button>
+    <button class="pill" data-target="admin">إدارة الأعمال</button>
+    <button class="pill" data-target="acc">المحاسبة والمراجعة</button>
+    <button class="pill" data-target="mis">نظم المعلومات</button>
+    <button class="pill" data-target="mkt">التسويق</button>
+    <button class="pill" data-target="eco">الاقتصاد والتجارة الدولية</button>
+  </div>
+</header>
+
+<div class="hero" style="text-align:center; margin-top:20px; color:#fff;">
+  <h2 style="margin:0; font-size:1.8rem; text-shadow:0 14px 40px rgba(0,0,0,0.3);">اللائحة الجديدة</h2>
+  <p style="margin-top:8px; font-size:1.1rem; color:#f0f0f0;">
+    <strong>إجمالي الساعات:</strong> 132 + 3 يونت مشروع التخرج
+  </p>
+</div>
+
+
+<!-- المواد المشتركة -->
+<section id="shared" class="content">
+  <div class="images-grid">
+    <img class="flow-img" src="study_plan_images/Shared_Courses.png" alt="المواد المشتركة">
+    <img class="flow-img" src="study_plan_images/Shared_Courses_2.png.png" alt="المواد المشتركة 2">
+    <img class="flow-img" src="study_plan_images/Shared_Courses_3.png.png" alt="المواد المشتركة 3">
+  </div>
+  <br>
+  <button class="download-btn"><i class="fa-solid fa-download"></i> Download images</button>
+  
+</section>
+
+<!-- إدارة الأعمال -->
+<section id="admin" class="content" hidden>
+  <div class="images-grid">
+    <img class="flow-img" src="study_plan_images/Business_Administration.png" alt="إدارة الأعمال">
+    <img class="flow-img" src="study_plan_images/Business_Administration_2.png" alt="إدارة الأعمال تابع">
+  </div>
+  <br>
+    <button class="download-btn"><i class="fa-solid fa-download"></i> Download images</button>
+ 
+</section>
+
+<!-- المحاسبة -->
+<section id="acc" class="content" hidden>
+  <div class="images-grid">
+    <img class="flow-img" src="study_plan_images/Accounting_and_Auditing.png" alt="المحاسبة والمراجعة">
+  </div>
+  <br>
+    <button class="download-btn"><i class="fa-solid fa-download"></i> Download image</button>
+
+</section>
+
+<!-- نظم معلومات -->
+<section id="mis" class="content" hidden>
+  <div class="images-grid">
+    <img class="flow-img" src="study_plan_images/Information_Systems.png" alt="نظم معلومات الأعمال">
+  </div>
+  <br>
+    <button class="download-btn"><i class="fa-solid fa-download"></i> Download image</button>
+
+</section>
+
+<!-- التسويق -->
+<section id="mkt" class="content" hidden>
+  <div class="images-grid">
+    <img class="flow-img" src="study_plan_images/Marketing.png" alt="التسويق">
+  </div>
+  <br>
+    <button class="download-btn"><i class="fa-solid fa-download"></i> Download image</button>
+
+</section>
+
+<!-- الاقتصاد -->
+<section id="eco" class="content" hidden>
+  <div class="images-grid">
+    <img class="flow-img" src="study_plan_images/Economics_and_International_Trade.png" alt="الاقتصاد والتجارة الدولية">
+  </div>
+  <br>
+    <button class="download-btn"><i class="fa-solid fa-download"></i> Download image</button>
+
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>© 2025 جميع الحقوق محفوظة</p>
+  <p><b>Design &amp; Development</b></p>
+  <p style="color:#7dc3ff; font-weight:bold;">YOUSEF A. EL3SAILLY | يوسف العسيلي</p>
+</footer>
+
+</div>
+
+<script>
+const pills = document.querySelectorAll('.pill[data-target]');
+const sections = document.querySelectorAll('section.content');
+
+// ✅ التبديل بين الأقسام
+pills.forEach(btn => {
+  btn.addEventListener('click', () => {
+    pills.forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    sections.forEach(sec => sec.hidden = sec.id !== btn.dataset.target);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+
+// ✅ تحميل كل الصور داخل القسم الحالي
+document.querySelectorAll('.download-btn').forEach(button => {
+  button.addEventListener('click', () => {
+    const section = button.closest('section');
+    const images = section.querySelectorAll('.flow-img');
+
+    images.forEach(img => {
+      const link = document.createElement('a');
+      link.href = img.src;
+      link.download = img.src.split('/').pop(); // اسم الصورة تلقائي
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+  });
+});
+</script>
+
+
+</body>
+</html>
