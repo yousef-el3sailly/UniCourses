@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UniCourses | Computer Science 2022</title>
+<meta name="description" content="Computer Science 2022 - UniCourses HTI">
+<link rel="icon" type="image/png" href="image/icons8-u-64.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root{--bg:#f6f1e8;--surface:#fffdf9;--surface2:#f1e8dc;--primary:#5b2426;--primary2:#7b3a3c;--gold:#b89a63;--text:#281919;--muted:#806e66;--border:#e2d7c9;--shadow:0 20px 60px rgba(72,35,28,.08)}
+body.dark{--bg:#171313;--surface:#211a1a;--surface2:#2a2020;--primary:#d39a88;--primary2:#e1b2a3;--gold:#c6a66d;--text:#f6eee7;--muted:#bcaea6;--border:#3c302f;--shadow:0 20px 60px rgba(0,0,0,.35)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Cairo,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;transition:.3s}a{text-decoration:none;color:inherit}
+header{
+  width:min(1200px,92%);
+  min-height:94px;
+  margin:24px auto 0;
+  padding:10px 18px;
+  background:rgba(255,253,249,.94);
+  border:1px solid var(--border);
+  border-radius:20px;
+  display:flex;
+  align-items:center;
+  gap:16px;
+  justify-content:space-between;
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  transition:.3s ease;
+}
+body.dark header{background:rgba(48,33,34,.94)}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  min-width:210px;
+}
+.brand-logo{
+  width:78px;
+  height:78px;
+  flex-shrink:0;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid var(--gold);
+  background:var(--surface);
+  padding:3px;
+  box-shadow:0 6px 20px rgba(76,45,30,.14);
+  transition:transform .3s ease,box-shadow .3s ease;
+}
+.brand-logo:hover{
+  transform:scale(1.05);
+  box-shadow:0 10px 28px rgba(76,45,30,.20);
+}
+.brand-text strong{
+  display:block;
+  color:var(--primary);
+  font-size:18px;
+  font-weight:800;
+}
+.brand-text span{
+  display:block;
+  margin-top:3px;
+  color:var(--muted);
+  font-size:10px;
+  letter-spacing:1px;
+}
+.actions{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.btn{
+  border:1px solid var(--border);
+  background:var(--surface);
+  color:var(--primary);
+  padding:9px 13px;
+  border-radius:999px;
+  font-family:inherit;
+  font-weight:700;
+  cursor:pointer;
+  transition:.25s ease;
+}
+.btn:hover{
+  background:var(--primary);
+  border-color:var(--primary);
+  color:#fff;
+  transform:translateY(-1px);
+}
+main{width:min(1200px,92%);margin:45px auto 65px}.hero{text-align:center;margin-bottom:28px}.badge{display:inline-block;padding:7px 14px;border-radius:999px;background:var(--surface2);border:1px solid var(--border);color:var(--primary);font-weight:700;margin-bottom:12px}.hero h1{font-size:clamp(34px,5vw,56px);line-height:1.2}.hero p{margin-top:10px;color:var(--muted)}
+.tabs{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;margin-bottom:22px}.tab{padding:10px 15px;border-radius:999px;border:1px solid var(--border);background:var(--surface);font-family:inherit;font-weight:700;color:var(--text);cursor:pointer}.tab.active,.tab:hover{background:var(--primary);border-color:var(--primary);color:#fff}
+.panel{background:var(--surface);border:1px solid var(--border);border-radius:22px;padding:26px;box-shadow:var(--shadow)}.title{color:var(--primary);font-size:24px;margin-bottom:18px;display:flex;gap:9px;align-items:center}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:13px}.card,.rule,.course-group{background:var(--surface2);border:1px solid var(--border);border-radius:16px;padding:16px}.card i{color:var(--gold);font-size:21px;margin-bottom:9px}.card h3{font-size:16px;margin-bottom:5px}.card p,.rule p{color:var(--muted);font-size:13px;line-height:1.9}
+.notice{margin-top:16px;padding:14px 16px;border-right:4px solid var(--gold);background:rgba(184,154,99,.1);border-radius:12px;line-height:1.9}
+.course-group{padding:0;overflow:hidden;margin-top:14px}.course-group h3{background:var(--primary);color:#fff;padding:11px 15px;font-size:16px}.course-list{padding:8px 16px}.course{display:flex;gap:12px;padding:10px 0;border-bottom:1px dashed var(--border)}.course:last-child{border:0}.code{min-width:70px;color:var(--primary);font-weight:800;direction:ltr;text-align:left}.course-name{font-weight:700}.meta{font-size:11px;color:var(--muted)}.rules{display:grid;gap:12px}.rule strong{color:var(--primary)}
+table{width:100%;border-collapse:collapse;margin-top:10px}th,td{padding:9px;border:1px solid var(--border);text-align:center}th{background:var(--primary);color:#fff}td{background:var(--surface2)}footer{width:min(1200px,92%);margin:0 auto 25px;text-align:center;border-top:1px solid var(--border);padding-top:20px;color:var(--muted);font-size:12px}footer strong{color:var(--primary)}[hidden]{display:none!important}
+
+
+
+
+/* ================================
+   OVERVIEW ENHANCEMENTS
+================================ */
+
+.overview-link-card{
+  cursor:pointer;
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    border-color .25s ease;
+}
+
+.overview-link-card:hover{
+  transform:translateY(-5px);
+  border-color:var(--gold);
+  box-shadow:0 16px 38px rgba(72,35,28,.12);
+}
+
+.overview-link-card i{
+  color:var(--gold);
+}
+
+.overview-link-card .fa-facebook{
+  color:#1877f2;
+}
+
+.overview-card-link{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  margin-top:10px;
+  color:var(--gold);
+  font-size:12px;
+  font-weight:800;
+}
+
+.overview-system-card{
+  position:relative;
+  overflow:hidden;
+}
+
+.overview-system-card::after{
+  content:"3 TERMS";
+  position:absolute;
+  top:12px;
+  left:12px;
+  padding:4px 8px;
+  border-radius:999px;
+  background:rgba(184,154,99,.12);
+  border:1px solid rgba(184,154,99,.28);
+  color:var(--gold);
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.5px;
+}
+
+.overview-system-card strong{
+  color:var(--primary);
+}
+
+@media(max-width:900px){
+  header{
+    flex-wrap:wrap;
+    padding:12px 14px;
+  }
+  .brand{
+    min-width:0;
+    flex:1;
+  }
+}
+
+@media(max-width:600px){
+  header{
+    width:94%;
+    min-height:auto;
+    margin-top:15px;
+    padding:11px 12px;
+    border-radius:17px;
+    gap:12px;
+  }
+  .brand{
+    gap:10px;
+  }
+  .brand-logo{
+    width:65px;
+    height:65px;
+    border-radius:50%;
+  }
+  .brand-text strong{
+    font-size:15px;
+  }
+  .brand-text span{
+    font-size:9px;
+  }
+  .actions{
+    width:100%;
+    justify-content:center;
+  }
+  .btn{
+    flex:1;
+    padding:8px 10px;
+    font-size:12px;
+  }
+}
+
+@media(max-width:600px){
+  .overview-card-link{
+    font-size:11px;
+  }
+
+  .overview-system-card::after{
+    font-size:8px;
+  }
+}
+
+/* ================================
+   COMPUTER SCIENCE REGULATION CARD
+================================ */
+
+.regulation-card{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  width:100%;
+  padding:22px;
+  margin-top:8px;
+  background:var(--surface2);
+  border:1px solid var(--border);
+  border-radius:18px;
+  color:var(--text);
+  text-decoration:none;
+  box-shadow:0 10px 30px rgba(72,35,28,.05);
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.regulation-card:hover{
+  transform:translateY(-4px);
+  border-color:var(--gold);
+  box-shadow:0 16px 38px rgba(72,35,28,.10);
+}
+
+.regulation-icon{
+  width:68px;
+  height:68px;
+  min-width:68px;
+  border-radius:16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--primary);
+  color:#fff;
+  font-size:27px;
+  box-shadow:0 8px 20px rgba(91,36,38,.16);
+}
+
+.regulation-content h3{
+  color:var(--primary);
+  font-size:19px;
+  margin:0 0 5px;
+}
+
+.regulation-content p{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.8;
+  margin:0 0 8px;
+}
+
+.regulation-link{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  color:var(--gold);
+  font-size:13px;
+  font-weight:800;
+}
+
+@media(max-width:600px){
+  .regulation-card{
+    padding:17px;
+    gap:13px;
+  }
+
+  .regulation-icon{
+    width:56px;
+    height:56px;
+    min-width:56px;
+    border-radius:14px;
+    font-size:22px;
+  }
+
+  .regulation-content h3{
+    font-size:16px;
+  }
+
+  .regulation-content p{
+    font-size:11px;
+  }
+
+  .regulation-link{
+    font-size:12px;
+  }
+}
+
+/* Center the final-grade card */
+.grading-main{
+  display:flex !important;
+  justify-content:center !important;
+  align-items:center !important;
+  width:100% !important;
+  margin:0 auto 14px !important;
+}
+
+.grading-item.final{
+  width:min(100%,420px) !important;
+  margin:0 auto !important;
+  text-align:center !important;
+}
+
+/* ================================
+   GRADING DISTRIBUTION
+================================ */
+
+.grading-box{
+  margin-top:18px;
+  padding:20px;
+  background:var(--surface2);
+  border:1px solid var(--border);
+  border-radius:18px;
+}
+
+.grading-box > h3{
+  color:var(--primary);
+  font-size:23px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  margin-bottom:20px;
+}
+
+.grading-main{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+  margin-bottom:14px;
+}
+
+.grading-item{
+  text-align:center;
+  padding:18px;
+  border-radius:15px;
+  border:1px solid var(--border);
+  background:var(--surface);
+}
+
+.grading-item .grading-label{
+  display:block;
+  color:var(--muted);
+  font-size:14px;
+  margin-bottom:5px;
+}
+
+.grading-item strong{
+  display:block;
+  color:var(--primary);
+  font-size:25px;
+  font-weight:800;
+}
+
+.grading-item p{
+  margin-top:4px;
+  color:var(--muted);
+  font-size:12px;
+}
+
+.grading-details{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+
+.detail-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:15px;
+  padding:16px;
+}
+
+.detail-card h4{
+  color:var(--primary);
+  font-size:16px;
+  margin-bottom:12px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.detail-card h4 i{
+  color:var(--gold);
+}
+
+.detail-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:9px 0;
+  border-bottom:1px dashed var(--border);
+  font-size:13px;
+}
+
+.detail-row:last-child{
+  border-bottom:none;
+}
+
+.detail-row span{
+  color:var(--muted);
+}
+
+.detail-row strong{
+  color:var(--primary);
+  font-weight:800;
+}
+
+@media (max-width: 600px) {
+
+  header {
+    width: 94%;
+    margin-top: 15px;
+    padding: 12px 15px;
+  }
+.brand-text strong {
+    font-size: 15px;
+  }
+
+  .brand-text span {
+    font-size: 9px;
+  }
+
+  .hero {
+    width: 94%;
+    margin-top: 40px;
+    margin-bottom: 50px;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+    letter-spacing: -1px;
+  }
+
+  .hero-description {
+    font-size: 14px;
+    line-height: 1.9;
+  }
+
+  .main-card {
+    padding: 22px;
+    border-radius: 22px;
+  }
+
+  .profile-img {
+    width: 105px;
+    height: 105px;
+  }
+
+  .card-title h2 {
+    font-size: 22px;
+  }
+
+  /* ================================
+     MOBILE TAB NAVIGATION FIX
+  ================================= */
+
+  .tabs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+
+    width: 100%;
+    overflow: visible;
+
+    margin-bottom: 20px;
+    padding: 0;
+  }
+
+  .tab {
+    width: 100%;
+    min-width: 0;
+
+    padding: 9px 6px;
+
+    font-size: 0.72rem;
+    line-height: 1.5;
+
+    text-align: center;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    border-radius: 999px;
+  }
+
+  .tab.active,
+  .tab:hover {
+    transform: none;
+  }
+
+  .panel {
+    width: 100%;
+    padding: 18px;
+    border-radius: 20px;
+  }
+
+  .title {
+    font-size: 21px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .grading-main,
+  .grading-details {
+    grid-template-columns: 1fr;
+  }
+
+  .grading-item.final {
+    width: 100% !important;
+  }
+
+  .regulation-card {
+    padding: 17px;
+    gap: 13px;
+  }
+
+  .regulation-icon {
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
+    border-radius: 14px;
+    font-size: 22px;
+  }
+
+  .regulation-content h3 {
+    font-size: 16px;
+  }
+
+  .regulation-content p {
+    font-size: 11px;
+  }
+
+  .regulation-link {
+    font-size: 12px;
+  }
+
+  footer {
+    width: 94%;
+  }
+}
+
+@media(max-width:600px){header,main,footer{width:94%}main{margin-top:32px}.panel{padding:18px}.tabs{justify-content:flex-start;flex-wrap:nowrap;overflow:auto;padding-bottom:4px}.tab{white-space:nowrap}.course{flex-direction:column;gap:3px}.code{min-width:auto;text-align:right}}
+
+/* ========================================
+   HEADER PROFILE SIZE — SAME AS FLOWCHART
+======================================== */
+
+/* Desktop */
+.brand-logo{
+  width:78px;
+  height:78px;
+  flex-shrink:0;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid var(--gold);
+  background:var(--surface);
+  padding:3px;
+  box-shadow:0 6px 20px rgba(76,45,30,.14);
+}
+
+/* Mobile */
+@media (max-width:600px){
+  header{
+    width:94%;
+    min-height:auto;
+    margin-top:15px;
+    padding:11px 12px;
+    border-radius:17px;
+    gap:12px;
+  }
+
+  .brand{
+    gap:10px;
+  }
+
+  .brand-logo{
+    width:78px !important;
+    height:78px !important;
+    border-radius:50%;
+    border-width:3px;
+  }
+
+  .brand-text strong{
+    font-size:15px;
+  }
+
+  .brand-text span{
+    font-size:9px;
+  }
+
+  .actions{
+    width:auto;
+    justify-content:flex-end;
+  }
+}
+
+/* Very small phones */
+@media (max-width:380px){
+  .brand-logo{
+    width:72px !important;
+    height:72px !important;
+  }
+}
+
+
+@media (max-width:600px){
+  .brand-logo{
+    box-shadow:
+      0 7px 20px rgba(76,45,30,.18),
+      0 0 0 1px rgba(201,161,91,.20);
+  }
+
+  .brand{
+    min-height:78px;
+  }
+
+  .brand-text strong{
+    font-size:14px;
+  }
+
+  .brand-text span{
+    font-size:8px;
+  }
+}
+
+</style>
+</head>
+<body>
+<header>
+<a href="index.html" class="brand"><img src="image/770745513_1717383286840018_6690213655912246753_n.jpg" class="brand-logo" alt="UniCourses"><div class="brand-text"><strong>UniCourses</strong><span>Computer Science_HTI</span></div></a>
+<div class="actions"><a class="btn" href="index.html"><i class="fa-solid fa-arrow-right"></i> الرئيسية</a><button class="btn" id="theme"><i class="fa-solid fa-moon"></i></button></div>
+</header>
+<main>
+<section class="hero"><div class="badge"><i class="fa-solid fa-laptop-code"></i> Computer Science</div><h1>علوم الحاسب</h1><p>اللائحة الجديدة 2022 — برنامج بكالوريوس علوم الحاسب بنظام الساعات المعتمدة</p></section>
+<div class="tabs">
+<button class="tab active" data-target="overview">نظرة عامة</button><button class="tab" data-target="courses">المقررات</button><button class="tab" data-target="registration">التسجيل</button><button class="tab" data-target="rules">أهم النقاط</button><button class="tab" data-target="grading">التقديرات</button>
+</div>
+<section id="overview" class="panel">
+  <h2 class="title">
+    <i class="fa-solid fa-circle-info"></i>
+    نظرة عامة
+  </h2>
+
+  <div class="cards">
+
+    <!-- 134 ساعة -->
+    <div class="card">
+      <i class="fa-solid fa-graduation-cap"></i>
+      <h3>134 ساعة معتمدة</h3>
+      <p>
+        متطلبات التخرج في البرنامج 134 ساعة معتمدة، مع ألا يقل الـ GPA عن 2.0.
+      </p>
+    </div>
+
+    <!-- التدريب -->
+    <div class="card">
+      <i class="fa-solid fa-briefcase"></i>
+      <h3>التدريب</h3>
+      <p>
+        يوجد تدريبان صيفيان خلال الدراسة وفق شروط اللائحة.
+      </p>
+    </div>
+
+    <!-- صفحة HTI CS -->
+    <a
+      class="card overview-link-card"
+      href="https://www.facebook.com/HTI.SU.CS"
+      target="_blank"
+      rel="noopener"
+      aria-label="فتح صفحة HTI Computer Science"
+    >
+      <i class="fa-brands fa-facebook"></i>
+      <h3>HTI Computer Science</h3>
+      <p>
+        الصفحة الخاصة بعلوم الحاسب على فيسبوك لمتابعة الأخبار والإعلانات والتحديثات.
+      </p>
+      <span class="overview-card-link">
+        زيارة الصفحة
+        <i class="fa-solid fa-arrow-left"></i>
+      </span>
+    </a>
+
+    <!-- نظام الدراسة -->
+    <div class="card overview-system-card">
+      <i class="fa-solid fa-calendar-days"></i>
+      <h3>نظام الدراسة</h3>
+      <p>
+        المعهد التكنولوجي العالي يعمل بنظام الساعات المعتمدة،
+        ويُقسم العام الدراسي إلى <strong>3 تيرم</strong> بشكل منظم.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section id="courses" class="panel" hidden>
+  <h2 class="title">
+    <i class="fa-solid fa-book-open"></i>
+    المقررات
+  </h2>
+
+  <a
+    href="https://drive.google.com/file/d/1CU5TKMKPaVrh7eB_1RlADyC5PdXQhFOq/view?usp=sharing"
+    class="regulation-card"
+    target="_self"
+    aria-label="فتح لائحة علوم الحاسب 2022"
+  >
+    <div class="regulation-icon">
+      <i class="fa-solid fa-file-pdf"></i>
+    </div>
+
+    <div class="regulation-content">
+      <h3>لائحة علوم الحاسب 2022</h3>
+      <p>
+        اضغط هنا لعرض اللائحة الجديدة الخاصة ببرنامج علوم الحاسب
+      </p>
+      <span class="regulation-link">
+        فتح اللائحة
+        <i class="fa-solid fa-arrow-left"></i>
+      </span>
+    </div>
+  </a>
+</section>
+
+<section id="registration" class="panel" hidden><h2 class="title"><i class="fa-solid fa-calendar-check"></i> التسجيل والساعات</h2><div class="rules">
+<div class="rule"><strong>الحد الأقصى حسب GPA:</strong><p>3 فأكثر: 21 ساعة — من 2 إلى أقل من 3: 18 ساعة — من 1 إلى أقل من 2: 15 ساعة — أقل من 1: 12 ساعة.</p></div>
+<div class="rule"><strong>المستجد:</strong><p>في أول فصل للطالب المستجد يسمح بالتسجيل حتى 21 ساعة.</p></div>
+<div class="rule"><strong>الصيفي:</strong><p>3 فأكثر: 9 ساعات كحد أقصى، وأقل من 3: 6 ساعات كحد أقصى.</p></div>
+</div></section>
+
+<section id="rules" class="panel" hidden>
+  <h2 class="title">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    أهم النقاط
+  </h2>
+
+  <a
+    href="https://drive.google.com/file/d/1D0KksLGIbEqA5D8tLl2dSMkl1FOrwPK3/view?usp=sharing"
+    class="regulation-card"
+    target="_self"
+    aria-label="فتح شرح أهم نقاط لائحة علوم الحاسب 2022"
+  >
+    <div class="regulation-icon">
+      <i class="fa-solid fa-file-lines"></i>
+    </div>
+
+    <div class="regulation-content">
+      <h3>شرح أهم نقاط اللائحة</h3>
+      <p>
+        اضغط هنا لعرض شرح أهم النقاط في لائحة علوم الحاسب الجديدة 2022
+      </p>
+      <span class="regulation-link">
+        فتح الشرح
+        <i class="fa-solid fa-arrow-left"></i>
+      </span>
+    </div>
+  </a>
+</section>
+
+<section id="grading" class="panel" hidden><h2 class="title"><i class="fa-solid fa-chart-line"></i> التقديرات</h2><table><thead><tr><th>النسبة</th><th>GPA</th><th>التقدير</th></tr></thead><tbody>
+<tr><td>96% فأكثر</td><td>4.0</td><td>A+</td></tr><tr><td>92% - أقل من 96%</td><td>3.7</td><td>A</td></tr><tr><td>88% - أقل من 92%</td><td>3.4</td><td>A-</td></tr><tr><td>84% - أقل من 88%</td><td>3.2</td><td>B+</td></tr><tr><td>80% - أقل من 84%</td><td>3.0</td><td>B</td></tr><tr><td>76% - أقل من 80%</td><td>2.8</td><td>B-</td></tr><tr><td>72% - أقل من 76%</td><td>2.6</td><td>C+</td></tr><tr><td>68% - أقل من 72%</td><td>2.4</td><td>C</td></tr><tr><td>64% - أقل من 68%</td><td>2.2</td><td>C-</td></tr><tr><td>60% - أقل من 64%</td><td>2.0</td><td>D+</td></tr><tr><td>55% - أقل من 60%</td><td>1.5</td><td>D</td></tr><tr><td>50% - أقل من 55%</td><td>1.0</td><td>D-</td></tr><tr><td>أقل من 50%</td><td>0</td><td>F</td></tr>
+</tbody></table><div class="grading-box">
+
+  <h3>
+    <i class="fa-solid fa-chart-pie"></i>
+    توزيع الدرجات
+  </h3>
+
+  <div class="grading-main">
+
+    <div class="grading-item final">
+      <span class="grading-label">الفاينال</span>
+      <strong>60 درجة</strong>
+    </div>
+
+  </div>
+
+  <div class="grading-details">
+
+    <div class="detail-card">
+      <h4>
+        <i class="fa-solid fa-book"></i>
+        المواد النظرية
+      </h4>
+
+      <div class="detail-row">
+        <span>ميدتيرم</span>
+        <strong>20 درجة</strong>
+      </div>
+
+      <div class="detail-row">
+        <span>أعمال سنة</span>
+        <strong>20 درجة</strong>
+      </div>
+    </div>
+
+    <div class="detail-card">
+      <h4>
+        <i class="fa-solid fa-flask"></i>
+        المواد العملية
+      </h4>
+
+      <div class="detail-row">
+        <span>ميدتيرم</span>
+        <strong>10 درجات</strong>
+      </div>
+
+      <div class="detail-row">
+        <span>أعمال سنة</span>
+        <strong>30 درجة</strong>
+      </div>
+    </div>
+
+  </div>
+
+</div></section>
+</main>
+<!-- ========================================
+       FOOTER
+  ======================================== -->
+
+  <footer>
+
+    © 2026 جميع الحقوق محفوظة —
+
+    <span>
+      UniCourses
+    </span>
+
+    <br>
+
+    Design & Development by
+
+    <br>
+
+    <strong>
+      Yousef Amin Abbas El-Assaily
+    </strong>
+
+  </footer>
+<script>
+const tabs=document.querySelectorAll('.tab'),panels=document.querySelectorAll('.panel');tabs.forEach(t=>t.onclick=()=>{tabs.forEach(x=>x.classList.remove('active'));t.classList.add('active');panels.forEach(p=>p.hidden=p.id!==t.dataset.target);scrollTo({top:0,behavior:'smooth'})});
+const b=document.getElementById('theme'),i=b.querySelector('i');if(localStorage.getItem('theme')==='dark'){document.body.classList.add('dark');i.className='fa-solid fa-sun'}b.onclick=()=>{document.body.classList.toggle('dark');const d=document.body.classList.contains('dark');localStorage.setItem('theme',d?'dark':'light');i.className=d?'fa-solid fa-sun':'fa-solid fa-moon'};
+</script>
+</body>
+</html>
