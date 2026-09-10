@@ -1,0 +1,3860 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>UniCourses | التدريب الصيفي</title>
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="images_flowchart/icons8-u-64.png"
+  >
+
+  <!-- Google Font -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  >
+
+
+  <style>
+
+    /* =========================================================
+       ROOT
+    ========================================================= */
+
+    :root {
+
+      --bg: #f6f0e6;
+
+      --surface: #fffdf9;
+      --surface-2: #f0e6d8;
+      --surface-3: #e8dccd;
+
+      --primary: #64272a;
+      --primary-dark: #4d1d20;
+      --primary-light: #7a3638;
+
+      --gold: #c9a15b;
+      --gold-light: #dfc58f;
+
+      --text: #2d1b1b;
+      --muted: #8b7770;
+
+      --border: #e2d5c4;
+
+      --success: #357a4b;
+      --success-bg: #eaf5ed;
+
+      --warning: #9a691e;
+      --warning-bg: #fff5df;
+
+      --info: #315f7a;
+      --info-bg: #eaf3f8;
+
+      --radius: 20px;
+
+      --shadow:
+        0 12px 35px rgba(71, 42, 30, 0.08);
+
+      --shadow-hover:
+        0 18px 45px rgba(71, 42, 30, 0.14);
+
+      --max: 1200px;
+    }
+
+
+    /* =========================================================
+       DARK MODE
+    ========================================================= */
+
+    html.dark {
+
+      --bg: #24191a;
+
+      --surface: #302122;
+      --surface-2: #3a2929;
+      --surface-3: #443131;
+
+      --primary: #d6a6a1;
+      --primary-dark: #b9817c;
+      --primary-light: #e3bebb;
+
+      --gold: #d3ae69;
+      --gold-light: #e3ca91;
+
+      --text: #f7efe6;
+      --muted: #c4b0aa;
+
+      --border: #554141;
+
+      --success: #8ac39a;
+      --success-bg: #263c2d;
+
+      --warning: #e0bb70;
+      --warning-bg: #403520;
+
+      --info: #8dbbd4;
+      --info-bg: #263943;
+    }
+
+
+    /* =========================================================
+       RESET
+    ========================================================= */
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+
+      margin: 0;
+
+      min-height: 100vh;
+
+      font-family: "Cairo", sans-serif;
+
+      color: var(--text);
+
+      background:
+        radial-gradient(
+          circle at 5% 5%,
+          rgba(226, 211, 190, 0.55) 0,
+          rgba(226, 211, 190, 0.55) 150px,
+          transparent 151px
+        ),
+        radial-gradient(
+          circle at 100% 100%,
+          rgba(226, 211, 190, 0.45) 0,
+          rgba(226, 211, 190, 0.45) 190px,
+          transparent 191px
+        ),
+        var(--bg);
+
+      -webkit-font-smoothing: antialiased;
+
+      transition:
+        background 0.3s ease,
+        color 0.3s ease;
+    }
+
+    html.dark body {
+
+      background:
+        radial-gradient(
+          circle at 5% 5%,
+          rgba(95, 65, 58, 0.35) 0,
+          rgba(95, 65, 58, 0.35) 150px,
+          transparent 151px
+        ),
+        radial-gradient(
+          circle at 100% 100%,
+          rgba(95, 65, 58, 0.25) 0,
+          rgba(95, 65, 58, 0.25) 190px,
+          transparent 191px
+        ),
+        var(--bg);
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+
+    /* =========================================================
+       WRAPPER
+    ========================================================= */
+
+    .wrap {
+
+      width:
+        min(100% - 40px, var(--max));
+
+      margin:
+        0 auto;
+
+      padding:
+        28px 0 40px;
+    }
+
+
+    /* =========================================================
+       HEADER
+    ========================================================= */
+
+    header.site {
+
+      position:
+        relative;
+
+      width:
+        100%;
+
+      min-height:
+        94px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      gap:
+        16px;
+
+      padding:
+        10px 18px;
+
+      background:
+        rgba(255, 253, 249, 0.94);
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        20px;
+
+      box-shadow:
+        var(--shadow);
+
+      backdrop-filter:
+        blur(12px);
+
+      -webkit-backdrop-filter:
+        blur(12px);
+
+      transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    html.dark header.site {
+
+      background:
+        rgba(48, 33, 34, 0.94);
+    }
+
+
+    /* =========================================================
+       LOGO
+    ========================================================= */
+
+    .logo {
+
+      width:
+        78px;
+
+      height:
+        78px;
+
+      flex-shrink:
+        0;
+
+      border-radius:
+        50%;
+
+      object-fit:
+        cover;
+
+      border:
+        3px solid var(--gold);
+
+      background:
+        var(--surface);
+
+      padding:
+        3px;
+
+      box-shadow:
+        0 6px 20px rgba(76, 45, 30, 0.14);
+
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    .logo:hover {
+
+      transform:
+        scale(1.05);
+
+      box-shadow:
+        0 10px 28px rgba(76, 45, 30, 0.20);
+    }
+
+
+    /* =========================================================
+       BRAND
+    ========================================================= */
+
+    .brand {
+
+      min-width:
+        150px;
+    }
+
+    .brand h1 {
+
+      margin:
+        0;
+
+      color:
+        var(--primary);
+
+      font-size:
+        1.08rem;
+
+      font-weight:
+        800;
+
+      letter-spacing:
+        -0.3px;
+    }
+
+    .brand p {
+
+      margin:
+        3px 0 0;
+
+      color:
+        var(--muted);
+
+      font-size:
+        0.78rem;
+    }
+
+
+    /* =========================================================
+       CONTROLS
+    ========================================================= */
+
+    .controls {
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        flex-end;
+
+      flex-wrap:
+        wrap;
+
+      gap:
+        8px;
+
+      margin-inline-start:
+        auto;
+    }
+
+    .pill {
+
+      border:
+        1px solid var(--border);
+
+      background:
+        transparent;
+
+      color:
+        var(--text);
+
+      border-radius:
+        999px;
+
+      padding:
+        8px 15px;
+
+      font-family:
+        inherit;
+
+      font-size:
+        0.82rem;
+
+      font-weight:
+        700;
+
+      cursor:
+        pointer;
+
+      transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .pill:hover {
+
+      border-color:
+        var(--gold);
+
+      background:
+        var(--surface-2);
+
+      color:
+        var(--primary);
+
+      transform:
+        translateY(-1px);
+    }
+
+    .pill.active {
+
+      background:
+        var(--primary);
+
+      color:
+        #fff;
+
+      border-color:
+        var(--primary);
+
+      box-shadow:
+        0 6px 18px rgba(100, 39, 42, 0.18);
+
+      transform:
+        translateY(-1px);
+    }
+
+
+    /* =========================================================
+       THEME BUTTON
+    ========================================================= */
+
+    .theme-btn {
+
+      width:
+        40px;
+
+      height:
+        40px;
+
+      border-radius:
+        50%;
+
+      border:
+        1px solid var(--border);
+
+      background:
+        var(--surface);
+
+      color:
+        var(--primary);
+
+      cursor:
+        pointer;
+
+      font-size:
+        0.95rem;
+
+      transition:
+        0.25s ease;
+    }
+
+    .theme-btn:hover {
+
+      background:
+        var(--primary);
+
+      color:
+        #fff;
+
+      transform:
+        rotate(12deg);
+    }
+
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
+
+      position:
+        relative;
+
+      margin-top:
+        30px;
+
+      padding:
+        32px 20px;
+
+      text-align:
+        center;
+
+      color:
+        var(--text);
+    }
+
+    .hero::before {
+
+      content:
+        "";
+
+      position:
+        absolute;
+
+      width:
+        85px;
+
+      height:
+        85px;
+
+      top:
+        0;
+
+      right:
+        8%;
+
+      border-radius:
+        50%;
+
+      background:
+        rgba(201, 161, 91, 0.10);
+
+      pointer-events:
+        none;
+    }
+
+    .hero h2 {
+
+      position:
+        relative;
+
+      margin:
+        0 0 8px;
+
+      color:
+        var(--primary);
+
+      font-size:
+        clamp(1.7rem, 3vw, 2.4rem);
+
+      font-weight:
+        800;
+
+      line-height:
+        1.5;
+    }
+
+    .hero p {
+
+      position:
+        relative;
+
+      max-width:
+        800px;
+
+      margin:
+        7px auto;
+
+      color:
+        var(--muted);
+
+      font-size:
+        0.95rem;
+
+      line-height:
+        1.9;
+    }
+
+    .hero p strong {
+      color:
+        var(--primary);
+    }
+
+
+    /* =========================================================
+       TRAINING PATH
+    ========================================================= */
+
+    .training-path {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap:
+        15px;
+
+      margin:
+        10px 0 25px;
+    }
+
+    .path-card {
+
+      position:
+        relative;
+
+      padding:
+        18px;
+
+      background:
+        var(--surface);
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        18px;
+
+      text-align:
+        center;
+
+      box-shadow:
+        var(--shadow);
+
+      transition:
+        0.25s ease;
+    }
+
+    .path-card:hover {
+
+      transform:
+        translateY(-3px);
+
+      box-shadow:
+        var(--shadow-hover);
+    }
+
+    .path-number {
+
+      width:
+        42px;
+
+      height:
+        42px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      margin:
+        0 auto 8px;
+
+      border-radius:
+        50%;
+
+      background:
+        var(--primary);
+
+      color:
+        #fff;
+
+      font-size:
+        1rem;
+
+      font-weight:
+        800;
+    }
+
+    .path-card h3 {
+
+      margin:
+        3px 0;
+
+      color:
+        var(--primary);
+
+      font-size:
+        0.95rem;
+    }
+
+    .path-card p {
+
+      margin:
+        3px 0;
+
+      color:
+        var(--muted);
+
+      font-size:
+        0.74rem;
+    }
+
+    .path-arrow {
+
+      position:
+        absolute;
+
+      top:
+        50%;
+
+      left:
+        -17px;
+
+      transform:
+        translateY(-50%);
+
+      color:
+        var(--gold);
+
+      font-size:
+        1rem;
+
+      z-index:
+        2;
+    }
+
+
+    /* =========================================================
+       SECTION
+    ========================================================= */
+
+    section.content {
+
+      margin-top:
+        20px;
+
+      animation:
+        sectionIn 0.45s ease both;
+    }
+
+    section[hidden] {
+      display:
+        none !important;
+    }
+
+
+    /* =========================================================
+       REQUIREMENT BOX
+    ========================================================= */
+
+    .requirement {
+
+      display:
+        flex;
+
+      align-items:
+        flex-start;
+
+      gap:
+        14px;
+
+      padding:
+        18px 20px;
+
+      margin-bottom:
+        22px;
+
+      border-radius:
+        18px;
+
+      background:
+        var(--warning-bg);
+
+      border:
+        1px solid rgba(201, 161, 91, 0.45);
+
+      box-shadow:
+        var(--shadow);
+
+      text-align:
+        right;
+    }
+
+    .requirement-icon {
+
+      width:
+        42px;
+
+      height:
+        42px;
+
+      flex-shrink:
+        0;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      border-radius:
+        50%;
+
+      background:
+        var(--gold);
+
+      color:
+        #fff;
+
+      font-size:
+        1rem;
+    }
+
+    .requirement h3 {
+
+      margin:
+        0 0 4px;
+
+      color:
+        var(--primary);
+
+      font-size:
+        0.98rem;
+    }
+
+    .requirement p {
+
+      margin:
+        0;
+
+      color:
+        var(--text);
+
+      font-size:
+        0.82rem;
+
+      line-height:
+        1.9;
+    }
+
+
+    /* =========================================================
+       TRAINING HEADER
+    ========================================================= */
+
+    .training-header {
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        space-between;
+
+      gap:
+        15px;
+
+      margin-bottom:
+        18px;
+
+      padding:
+        20px;
+
+      background:
+        var(--surface);
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        20px;
+
+      box-shadow:
+        var(--shadow);
+    }
+
+    .training-title {
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      gap:
+        13px;
+    }
+
+    .training-icon {
+
+      width:
+        52px;
+
+      height:
+        52px;
+
+      flex-shrink:
+        0;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      border-radius:
+        15px;
+
+      background:
+        var(--primary);
+
+      color:
+        #fff;
+
+      font-size:
+        1.15rem;
+    }
+
+    .training-title h2 {
+
+      margin:
+        0;
+
+      color:
+        var(--primary);
+
+      font-size:
+        1.2rem;
+    }
+
+    .training-title p {
+
+      margin:
+        3px 0 0;
+
+      color:
+        var(--muted);
+
+      font-size:
+        0.78rem;
+    }
+
+    .training-code {
+
+      padding:
+        7px 13px;
+
+      border-radius:
+        999px;
+
+      background:
+        var(--surface-2);
+
+      border:
+        1px solid var(--border);
+
+      color:
+        var(--primary);
+
+      font-size:
+        0.75rem;
+
+      font-weight:
+        800;
+
+      white-space:
+        nowrap;
+    }
+
+
+    /* =========================================================
+       COURSES
+    ========================================================= */
+
+    .courses-title {
+
+      margin:
+        25px 0 12px;
+
+      color:
+        var(--primary);
+
+      font-size:
+        1rem;
+
+      font-weight:
+        800;
+
+      text-align:
+        right;
+    }
+
+    .courses-grid {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap:
+        12px;
+
+      margin-bottom:
+        25px;
+    }
+
+    .course {
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      gap:
+        11px;
+
+      padding:
+        14px 16px;
+
+      background:
+        var(--surface);
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        14px;
+
+      box-shadow:
+        0 5px 18px rgba(71, 42, 30, 0.05);
+
+      color:
+        var(--text);
+
+      font-size:
+        0.82rem;
+
+      font-weight:
+        600;
+
+      text-align:
+        right;
+    }
+
+    .course i {
+
+      color:
+        var(--success);
+
+      font-size:
+        0.95rem;
+
+      flex-shrink:
+        0;
+    }
+
+
+    /* =========================================================
+       TOPICS
+    ========================================================= */
+
+    .topics-grid {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap:
+        18px;
+    }
+
+    .topic-card {
+
+      background:
+        var(--surface);
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        18px;
+
+      padding:
+        20px;
+
+      box-shadow:
+        var(--shadow);
+
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+
+      text-align:
+        right;
+    }
+
+    .topic-card:hover {
+
+      transform:
+        translateY(-4px);
+
+      border-color:
+        var(--gold);
+
+      box-shadow:
+        var(--shadow-hover);
+    }
+
+    .topic-card h3 {
+
+      margin:
+        0 0 12px;
+
+      color:
+        var(--primary);
+
+      font-size:
+        1rem;
+
+      font-weight:
+        800;
+
+      padding-bottom:
+        9px;
+
+      border-bottom:
+        1px solid var(--border);
+    }
+
+    .topic-card ul {
+
+      margin:
+        0;
+
+      padding-right:
+        20px;
+
+      padding-left:
+        0;
+    }
+
+    .topic-card li {
+
+      margin-bottom:
+        8px;
+
+      color:
+        var(--text);
+
+      font-size:
+        0.82rem;
+
+      line-height:
+        1.85;
+    }
+
+    .topic-card li::marker {
+
+      color:
+        var(--gold);
+    }
+
+
+    /* =========================================================
+       SPECIALIZATIONS
+    ========================================================= */
+
+    .specializations {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(5, 1fr);
+
+      gap:
+        9px;
+
+      margin-bottom:
+        20px;
+    }
+
+    .specialization-btn {
+
+      padding:
+        11px 7px;
+
+      border-radius:
+        13px;
+
+      border:
+        1px solid var(--border);
+
+      background:
+        var(--surface);
+
+      color:
+        var(--text);
+
+      font-family:
+        inherit;
+
+      font-size:
+        0.76rem;
+
+      font-weight:
+        700;
+
+      cursor:
+        pointer;
+
+      transition:
+        0.25s ease;
+    }
+
+    .specialization-btn:hover {
+
+      border-color:
+        var(--gold);
+
+      background:
+        var(--surface-2);
+
+      color:
+        var(--primary);
+    }
+
+    .specialization-btn.active {
+
+      background:
+        var(--primary);
+
+      color:
+        #fff;
+
+      border-color:
+        var(--primary);
+
+      box-shadow:
+        0 6px 18px rgba(100, 39, 42, 0.18);
+    }
+
+    .specialization-content[hidden] {
+      display:
+        none !important;
+    }
+
+
+    /* =========================================================
+       NOTICE
+    ========================================================= */
+
+    .notice {
+
+      display:
+        flex;
+
+      align-items:
+        flex-start;
+
+      gap:
+        12px;
+
+      padding:
+        15px 17px;
+
+      margin:
+        20px 0;
+
+      background:
+        var(--info-bg);
+
+      border:
+        1px solid rgba(49, 95, 122, 0.25);
+
+      border-radius:
+        15px;
+
+      color:
+        var(--text);
+
+      font-size:
+        0.8rem;
+
+      line-height:
+        1.9;
+    }
+
+    .notice i {
+
+      color:
+        var(--info);
+
+      margin-top:
+        4px;
+
+      flex-shrink:
+        0;
+    }
+
+
+    /* =========================================================
+       TRAINING DOCUMENT / ORIGINAL IMAGE
+    ========================================================= */
+
+    .training-document {
+
+      margin-top:
+        28px;
+
+      padding:
+        20px;
+
+      background:
+        var(--surface);
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        20px;
+
+      box-shadow:
+        var(--shadow);
+
+      text-align:
+        center;
+    }
+
+    .training-document-title {
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      gap:
+        9px;
+
+      margin-bottom:
+        16px;
+
+      color:
+        var(--primary);
+
+      font-size:
+        1rem;
+
+      font-weight:
+        800;
+    }
+
+    .training-document-title i {
+
+      color:
+        var(--gold);
+    }
+
+    .training-document img {
+
+      display:
+        block;
+
+      width:
+        100%;
+
+      max-width:
+        850px;
+
+      height:
+        auto;
+
+      margin:
+        0 auto;
+
+      padding:
+        6px;
+
+      background:
+        #fff;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        16px;
+
+      box-shadow:
+        var(--shadow);
+
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    .training-document img:hover {
+
+      transform:
+        translateY(-3px);
+
+      box-shadow:
+        var(--shadow-hover);
+    }
+
+
+    /* =========================================================
+       DOWNLOAD BUTTON
+    ========================================================= */
+
+    .document-download-btn {
+
+      display:
+        inline-flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      gap:
+        9px;
+
+      margin-top:
+        18px;
+
+      padding:
+        11px 20px;
+
+      border:
+        none;
+
+      border-radius:
+        999px;
+
+      background:
+        var(--primary);
+
+      color:
+        #fff;
+
+      font-family:
+        inherit;
+
+      font-size:
+        0.82rem;
+
+      font-weight:
+        800;
+
+      cursor:
+        pointer;
+
+      box-shadow:
+        0 7px 20px rgba(100, 39, 42, 0.16);
+
+      transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .document-download-btn:hover {
+
+      background:
+        var(--primary-dark);
+
+      transform:
+        translateY(-2px);
+
+      box-shadow:
+        0 10px 25px rgba(100, 39, 42, 0.22);
+    }
+
+    .document-download-btn i {
+      font-size:
+        0.9rem;
+    }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+
+      margin-top:
+        45px;
+
+      padding:
+        25px 15px;
+
+      text-align:
+        center;
+
+      background:
+        transparent;
+
+      color:
+        var(--muted);
+
+      border-top:
+        1px solid var(--border);
+
+      font-size:
+        0.78rem;
+
+      line-height:
+        2;
+    }
+
+    footer p {
+      margin:
+        5px 0;
+    }
+
+    footer p:nth-child(2) {
+
+      color:
+        var(--primary);
+
+      font-weight:
+        700;
+    }
+
+    footer p:last-child {
+
+      color:
+        var(--primary);
+
+      font-weight:
+        800;
+    }
+
+
+    /* =========================================================
+       ANIMATION
+    ========================================================= */
+
+    @keyframes sectionIn {
+
+      from {
+
+        opacity:
+          0;
+
+        transform:
+          translateY(12px);
+      }
+
+      to {
+
+        opacity:
+          1;
+
+        transform:
+          translateY(0);
+      }
+    }
+
+
+    /* =========================================================
+       SELECTION
+    ========================================================= */
+
+    ::selection {
+
+      background:
+        var(--gold);
+
+      color:
+        #fff;
+    }
+
+
+    /* =========================================================
+       TABLET
+    ========================================================= */
+
+    @media (max-width: 900px) {
+
+      .wrap {
+
+        width:
+          min(100% - 28px, var(--max));
+
+        padding-top:
+          18px;
+      }
+
+      header.site {
+
+        flex-wrap:
+          wrap;
+
+        padding:
+          12px 14px;
+      }
+
+      .controls {
+
+        width:
+          100%;
+
+        margin-inline-start:
+          0;
+
+        justify-content:
+          center;
+
+        padding-top:
+          5px;
+      }
+
+      .topics-grid {
+
+        grid-template-columns:
+          1fr;
+      }
+
+      .specializations {
+
+        grid-template-columns:
+          repeat(3, 1fr);
+      }
+    }
+
+
+    /* =========================================================
+       MOBILE
+    ========================================================= */
+
+    @media (max-width: 600px) {
+
+      .wrap {
+
+        width:
+          calc(100% - 20px);
+
+        padding:
+          10px 0 25px;
+      }
+
+      header.site {
+
+        min-height:
+          auto;
+
+        border-radius:
+          17px;
+
+        padding:
+          11px;
+
+        gap:
+          12px;
+      }
+
+      .logo {
+
+        width:
+          65px;
+
+        height:
+          65px;
+      }
+
+      .brand {
+
+        min-width:
+          0;
+
+        flex:
+          1;
+      }
+
+      .brand h1 {
+
+        font-size:
+          0.95rem;
+      }
+
+      .brand p {
+
+        font-size:
+          0.7rem;
+      }
+
+      .theme-btn {
+
+        width:
+          36px;
+
+        height:
+          36px;
+      }
+
+      .controls {
+
+        display:
+          grid;
+
+        grid-template-columns:
+          repeat(3, minmax(0, 1fr));
+
+        gap:
+          6px;
+      }
+
+      .pill {
+
+        width:
+          100%;
+
+        padding:
+          8px 4px;
+
+        font-size:
+          0.68rem;
+
+        line-height:
+          1.5;
+      }
+
+      .hero {
+
+        margin-top:
+          18px;
+
+        padding:
+          22px 5px 15px;
+      }
+
+      .hero h2 {
+
+        font-size:
+          1.45rem;
+
+        line-height:
+          1.6;
+      }
+
+      .hero p {
+
+        font-size:
+          0.8rem;
+
+        line-height:
+          1.9;
+      }
+
+      .training-path {
+
+        grid-template-columns:
+          1fr;
+
+        gap:
+          9px;
+      }
+
+      .path-card {
+
+        padding:
+          13px;
+      }
+
+      .path-arrow {
+        display:
+          none;
+      }
+
+      .courses-grid {
+
+        grid-template-columns:
+          1fr;
+      }
+
+      .training-header {
+
+        flex-direction:
+          column;
+
+        align-items:
+          flex-start;
+      }
+
+      .training-code {
+
+        align-self:
+          flex-start;
+      }
+
+      .specializations {
+
+        grid-template-columns:
+          repeat(2, 1fr);
+
+        gap:
+          7px;
+      }
+
+      .specialization-btn {
+
+        font-size:
+          0.7rem;
+
+        padding:
+          10px 5px;
+      }
+
+      .topic-card {
+
+        padding:
+          16px;
+      }
+
+      .topic-card li {
+
+        font-size:
+          0.77rem;
+
+        line-height:
+          1.8;
+      }
+
+      .requirement {
+
+        padding:
+          14px;
+
+        gap:
+          10px;
+      }
+
+      .requirement-icon {
+
+        width:
+          38px;
+
+        height:
+          38px;
+      }
+
+      .requirement h3 {
+
+        font-size:
+          0.88rem;
+      }
+
+      .requirement p {
+
+        font-size:
+          0.76rem;
+      }
+
+      .training-document {
+
+        margin-top:
+          20px;
+
+        padding:
+          12px;
+
+        border-radius:
+          16px;
+      }
+
+      .training-document img {
+
+        padding:
+          4px;
+
+        border-radius:
+          12px;
+      }
+
+      .document-download-btn {
+
+        padding:
+          10px 17px;
+
+        font-size:
+          0.76rem;
+      }
+
+      footer {
+
+        margin-top:
+          30px;
+
+        padding:
+          22px 10px;
+      }
+    }
+
+
+    /* =========================================================
+       VERY SMALL PHONES
+    ========================================================= */
+
+    @media (max-width: 380px) {
+
+      .controls {
+
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .logo {
+
+        width:
+          60px;
+
+        height:
+          60px;
+      }
+
+      .specializations {
+
+        grid-template-columns:
+          1fr;
+      }
+
+      .hero h2 {
+
+        font-size:
+          1.3rem;
+      }
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+<div class="wrap">
+
+
+  <!-- =======================================================
+       HEADER
+  ======================================================== -->
+
+  <header class="site">
+
+    <a href="index.html">
+
+      <img
+        class="logo"
+        src="image/770745513_1717383286840018_6690213655912246753_n.jpg"
+        alt="شعار المعهد"
+      >
+
+    </a>
+
+
+    <div class="brand">
+
+      <h1>HTI — UniCourses</h1>
+
+      <p>التدريب الصيفي</p>
+
+    </div>
+
+
+    <div class="controls">
+
+      <button
+        class="pill active"
+        data-target="training-a"
+      >
+        التدريب أ
+      </button>
+
+      <button
+        class="pill"
+        data-target="training-b"
+      >
+        التدريب ب
+      </button>
+
+      <button
+        class="pill"
+        data-target="training-c"
+      >
+        التدريب ج
+      </button>
+
+      <button
+        class="theme-btn"
+        id="themeToggle"
+        title="تغيير المظهر"
+        aria-label="تغيير المظهر"
+      >
+
+        <i class="fa-solid fa-moon"></i>
+
+      </button>
+
+    </div>
+
+  </header>
+
+
+  <!-- =======================================================
+       HERO
+  ======================================================== -->
+
+  <div class="hero">
+
+    <h2>
+      التدريب الصيفي
+    </h2>
+
+    <p>
+      قسم إدارة الأعمال وتخصصاته
+      —
+      <strong>
+        المعهد التكنولوجي العالي بمدينة العاشر من رمضان
+      </strong>
+    </p>
+
+    <p>
+      مسار التدريب:
+      <strong>
+        التدريب أ ← التدريب ب ← التدريب ج
+      </strong>
+    </p>
+
+  </div>
+
+
+ 
+
+
+  <!-- =======================================================
+       TRAINING A
+  ======================================================== -->
+
+  <section
+    id="training-a"
+    class="content"
+  >
+
+    <div class="training-header">
+
+      <div class="training-title">
+
+        <div class="training-icon">
+          <i class="fa-solid fa-1"></i>
+        </div>
+
+        <div>
+
+          <h2>
+            تدريب عملي (أ)
+          </h2>
+
+          <p>
+            التدريب الصناعي — مشترك لجميع التخصصات
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="training-code">
+        ITR 201
+      </div>
+
+    </div>
+
+
+    <!-- Requirement -->
+
+    <div class="requirement">
+
+      <div class="requirement-icon">
+        <i class="fa-solid fa-lock-open"></i>
+      </div>
+
+      <div>
+
+        <h3>
+          متطلبات تسجيل التدريب أ
+        </h3>
+
+        <p>
+          يجب أن يكون الطالب قد أنهى المواد الأربعة التالية
+          حتى يتمكن من تسجيل التدريب أ.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- Required Courses -->
+
+    <h3 class="courses-title">
+      المواد المطلوبة
+    </h3>
+
+    <div class="courses-grid">
+
+      <div class="course">
+
+        <i class="fa-solid fa-circle-check"></i>
+
+        مبادئ محاسبة مالية
+
+      </div>
+
+
+      <div class="course">
+
+        <i class="fa-solid fa-circle-check"></i>
+
+        إدارة الإنتاج والعمليات
+
+      </div>
+
+
+      <div class="course">
+
+        <i class="fa-solid fa-circle-check"></i>
+
+        مبادئ التسويق
+
+      </div>
+
+
+      <div class="course">
+
+        <i class="fa-solid fa-circle-check"></i>
+
+        إدارة اللوجستيات وسلاسل الإمداد
+
+      </div>
+
+    </div>
+
+
+    <!-- Training Content Title -->
+
+    <h3 class="courses-title">
+      المحتوى التدريبي
+    </h3>
+
+    <!-- Topics -->
+
+    <div class="topics-grid">
+
+
+      <!-- Accounting -->
+
+      <div class="topic-card">
+
+        <h3>
+          <i class="fa-solid fa-calculator"></i>
+          النظم المحاسبية
+        </h3>
+
+        <ul>
+
+          <li>
+            إجراءات التسجيل المحاسبي:
+            دفتر اليومية – دفتر الأستاذ – ميزان المراجعة.
+          </li>
+
+          <li>
+            كيفية إعداد الحسابات الختامية.
+          </li>
+
+          <li>
+            إعداد القوائم المالية:
+            قائمة الدخل – قائمة المركز المالي –
+            قائمة التدفقات النقدية... إلخ.
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <!-- Logistics -->
+
+      <div class="topic-card">
+
+        <h3>
+          <i class="fa-solid fa-truck-fast"></i>
+          نظام اللوجستيات وسلاسل التوريد والمشتريات
+        </h3>
+
+        <ul>
+
+          <li>
+            كيفية تقدير الاحتياجات من المواد.
+          </li>
+
+          <li>
+            طرق وسياسات الشراء.
+          </li>
+
+          <li>
+            الدورة المستندية للشراء.
+          </li>
+
+          <li>
+            العلاقات مع الموردين.
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <!-- Warehouses -->
+
+      <div class="topic-card">
+
+        <h3>
+          <i class="fa-solid fa-warehouse"></i>
+          نظام المخازن
+        </h3>
+
+        <ul>
+
+          <li>
+            الدورة المستندية للمخازن.
+          </li>
+
+          <li>
+            تحديد كميات الطلب ومستويات المخزون.
+          </li>
+
+          <li>
+            تنظيم المخازن والتخطيط الداخلي لها
+            وشروط السلامة والأمان بالمخازن.
+          </li>
+
+          <li>
+            طريقة مراقبة المخازن والجرد.
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <!-- Marketing -->
+
+      <div class="topic-card">
+
+        <h3>
+          <i class="fa-solid fa-bullhorn"></i>
+          نظام التسويق
+        </h3>
+
+        <ul>
+
+          <li>
+            كيفية عمل الخطة التسويقية بالشركة.
+          </li>
+
+          <li>
+            مكونات المزيج التسويقي في الشركة.
+          </li>
+
+          <li>
+            تطبيقات التسويق الرقمي وطرق التواصل بالعملاء.
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+
+    <!-- Original Image -->
+
+    <div class="training-document">
+
+      <div class="training-document-title">
+
+        <i class="fa-solid fa-file-image"></i>
+
+        عناصر تدريب أ
+      </div>
+
+
+      <img
+        src="training_images/Training_A.jpg"
+        alt="موضوعات التدريب العملي أ"
+      >
+
+
+      <button
+        class="document-download-btn"
+        data-image="training_images/Training_A.jpg"
+        data-name="Training_A.jpg"
+      >
+
+        <i class="fa-solid fa-download"></i>
+
+        تحميل الصورة
+
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       TRAINING B
+  ======================================================== -->
+
+  <section
+    id="training-b"
+    class="content"
+    hidden
+  >
+
+    <div class="training-header">
+
+      <div class="training-title">
+
+        <div class="training-icon">
+          <i class="fa-solid fa-2"></i>
+        </div>
+
+        <div>
+
+          <h2>
+            تدريب عملي (ب)
+          </h2>
+
+          <p>
+            التدريب الصناعي — مشترك لجميع التخصصات
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="training-code">
+        ITR 301
+      </div>
+
+    </div>
+
+
+    <!-- Requirement -->
+
+    <div class="requirement">
+
+      <div class="requirement-icon">
+
+        <i class="fa-solid fa-lock"></i>
+
+      </div>
+
+      <div>
+
+        <h3>
+          متطلبات تسجيل التدريب ب
+        </h3>
+
+        <p>
+          يشترط إتمام واجتياز التدريب أ أولًا
+          حتى يتمكن الطالب من تسجيل التدريب ب.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- Topics -->
+
+    <div class="topics-grid">
+
+
+      <!-- HR -->
+
+      <div class="topic-card">
+
+        <h3>
+          <i class="fa-solid fa-users"></i>
+          التنظيم وشؤون الأفراد
+        </h3>
+
+        <ul>
+
+          <li>
+            كيفية حصر الاحتياجات من العمالة.
+          </li>
+
+          <li>
+            كيفية تحليل الوظائف في المنظمة.
+          </li>
+
+          <li>
+            قوانين العمل.
+          </li>
+
+          <li>
+            ما يجب مراعاته عند التعيينات والإجازات.
+          </li>
+
+          <li>
+            دراسة الهيكل التنظيمي للمنظمة.
+          </li>
+
+          <li>
+            نظم التأمينات الاجتماعية.
+          </li>
+
+          <li>
+            نظم تقييم الأداء والترقيات.
+          </li>
+
+          <li>
+            نظم الأجور (هيكل الأجور)
+            والحوافز في الشركة.
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <!-- Budgets -->
+
+      <div class="topic-card">
+
+        <h3>
+          <i class="fa-solid fa-chart-pie"></i>
+          دراسة الموازنات
+        </h3>
+
+        <ul>
+
+          <li>
+            كيفية تحليل الموازنات التخطيطية والرأسمالية.
+          </li>
+
+          <li>
+            كيفية تحليل العلاقة بين الأرباح والتكاليف.
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+
+    <!-- Original Image -->
+
+    <div class="training-document">
+
+      <div class="training-document-title">
+
+        <i class="fa-solid fa-file-image"></i>
+
+        عناصر تدريب ب
+      </div>
+
+
+      <img
+        src="training_images/Training_B.jpg"
+        alt="موضوعات التدريب العملي ب"
+      >
+
+
+      <button
+        class="document-download-btn"
+        data-image="training_images/Training_B.jpg"
+        data-name="Training_B.jpg"
+      >
+
+        <i class="fa-solid fa-download"></i>
+
+        تحميل الصورة
+
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       TRAINING C
+  ======================================================== -->
+
+  <section
+    id="training-c"
+    class="content"
+    hidden
+  >
+
+    <div class="training-header">
+
+      <div class="training-title">
+
+        <div class="training-icon">
+          <i class="fa-solid fa-3"></i>
+        </div>
+
+        <div>
+
+          <h2>
+            تدريب عملي (ج)
+          </h2>
+
+          <p>
+            التدريب الصناعي — حسب التخصص
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="training-code">
+        تدريب تخصصي
+      </div>
+
+    </div>
+
+
+    <!-- Requirement -->
+
+    <div class="requirement">
+
+      <div class="requirement-icon">
+
+        <i class="fa-solid fa-lock"></i>
+
+      </div>
+
+      <div>
+
+        <h3>
+          متطلبات تسجيل التدريب ج
+        </h3>
+
+        <p>
+          يشترط إتمام واجتياز التدريب ب أولًا
+          حتى يتمكن الطالب من تسجيل التدريب ج.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="notice">
+
+      <i class="fa-solid fa-circle-info"></i>
+
+      <div>
+        اختر تخصصك لعرض موضوعات التدريب العملي (ج)
+        الخاصة به.
+      </div>
+
+    </div>
+
+
+    <!-- Specializations -->
+
+    <div class="specializations">
+
+      <button
+        class="specialization-btn active"
+        data-specialization="admin"
+      >
+        إدارة الأعمال
+      </button>
+
+
+      <button
+        class="specialization-btn"
+        data-specialization="accounting"
+      >
+        المحاسبة والمراجعة
+      </button>
+
+
+      <button
+        class="specialization-btn"
+        data-specialization="mis"
+      >
+        نظم معلومات الأعمال
+      </button>
+
+
+      <button
+        class="specialization-btn"
+        data-specialization="marketing"
+      >
+        التسويق
+      </button>
+
+
+      <button
+        class="specialization-btn"
+        data-specialization="economics"
+      >
+        اقتصاديات التجارة الدولية
+      </button>
+
+    </div>
+
+
+    <!-- =====================================================
+         ADMINISTRATION
+    ====================================================== -->
+
+    <div
+      class="specialization-content"
+      data-specialization-content="admin"
+    >
+
+      <div class="training-header">
+
+        <div class="training-title">
+
+          <div class="training-icon">
+            <i class="fa-solid fa-briefcase"></i>
+          </div>
+
+          <div>
+
+            <h2>
+              تدريب عملي ج — تخصص إدارة
+            </h2>
+
+            <p>
+              موضوعات التدريب التخصصي
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="training-code">
+          ITR 402
+        </div>
+
+      </div>
+
+
+      <div class="topics-grid">
+
+
+        <div class="topic-card">
+
+          <h3>
+            <i class="fa-solid fa-industry"></i>
+            التدريب على التخطيط وإدارة الإنتاج
+          </h3>
+
+          <ul>
+
+            <li>
+              كيفية عمل التخطيط والتحليل الاستراتيجي
+              SWOT في المنظمة.
+            </li>
+
+            <li>
+              الأسلوب المتبع في المصنع لوضع الخطة
+              الاستراتيجية والإنتاجية.
+            </li>
+
+            <li>
+              كيفية تطبيق الإدارة الإلكترونية في المنظمة.
+            </li>
+
+            <li>
+              المستندات المستخدمة في متابعة خطة الإنتاج.
+            </li>
+
+            <li>
+              أسلوب مراقبة جودة الإنتاج في المصنع.
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <div class="topic-card">
+
+          <h3>
+            <i class="fa-solid fa-chart-line"></i>
+            تحليل الإنتاجية
+          </h3>
+
+          <ul>
+
+            <li>
+              كيفية قياس الإنتاجية في المصنع.
+            </li>
+
+            <li>
+              الأساليب التي يمكن اتباعها لتحسين الإنتاجية.
+            </li>
+
+            <li>
+              دراسة العمل في بعض المواقع الإنتاجية بالمصنع.
+            </li>
+
+            <li>
+              استكمال دراسة العمل في بعض المواقع
+              الإنتاجية بالمصنع.
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <div class="topic-card">
+
+          <h3>
+            <i class="fa-solid fa-file-invoice-dollar"></i>
+            التدريب على إعداد الموازنات
+          </h3>
+
+          <ul>
+
+            <li>
+              طريقة إعداد الموازنة التخطيطية.
+            </li>
+
+            <li>
+              طريقة إعداد الموازنة الرأسمالية.
+            </li>
+
+            <li>
+              الرقابة باستخدام الموازنات.
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+      <!-- Original Image -->
+
+      <div class="training-document">
+
+        <div class="training-document-title">
+
+          <i class="fa-solid fa-file-image"></i>
+
+          عناصر تدريب ج ادارة الاعمال
+        </div>
+
+
+        <img
+          src="training_images/Training_C_Administration.jpg"
+          alt="تدريب ج تخصص إدارة الأعمال"
+        >
+
+
+        <button
+          class="document-download-btn"
+          data-image="training_images/Training_C_Administration.jpg"
+          data-name="Training_C_Administration.jpg"
+        >
+
+          <i class="fa-solid fa-download"></i>
+
+          تحميل الصورة
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         ACCOUNTING
+    ====================================================== -->
+
+    <div
+      class="specialization-content"
+      data-specialization-content="accounting"
+      hidden
+    >
+
+      <div class="training-header">
+
+        <div class="training-title">
+
+          <div class="training-icon">
+            <i class="fa-solid fa-calculator"></i>
+          </div>
+
+          <div>
+
+            <h2>
+              تدريب عملي ج — تخصص محاسبة
+            </h2>
+
+            <p>
+              موضوعات التدريب التخصصي
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="training-code">
+          ITR 404
+        </div>
+
+      </div>
+
+
+      <div class="topics-grid">
+
+
+        <div class="topic-card">
+
+          <h3>
+            القوائم المالية
+          </h3>
+
+          <ul>
+
+            <li>
+              إعداد ميزان المراجعة.
+            </li>
+
+            <li>
+              إعداد قائمة الدخل.
+            </li>
+
+            <li>
+              إعداد قائمة المركز المالي.
+            </li>
+
+            <li>
+              إعداد قائمة التدفقات النقدية
+              (الطريقة المباشرة – غير المباشرة).
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <div class="topic-card">
+
+          <h3>
+            المعالجات المحاسبية
+          </h3>
+
+          <ul>
+
+            <li>
+              ضريبة القيمة المضافة.
+            </li>
+
+            <li>
+              الضرائب على المرتبات.
+            </li>
+
+            <li>
+              نظام الترحيل المحاسبي.
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <div class="topic-card">
+
+          <h3>
+            تحليل التعادل
+          </h3>
+
+          <ul>
+
+            <li>
+              حساب نقطة التعادل.
+            </li>
+
+            <li>
+              تحديد حجم المبيعات لتحقيق ربح مستهدف.
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <div class="topic-card">
+
+          <h3>
+            مراجعة الحسابات
+          </h3>
+
+          <ul>
+
+            <li>
+              مراجعة بنود قائمة نتائج الأعمال.
+            </li>
+
+            <li>
+              مراجعة بنود قائمة المركز المالي.
+            </li>
+
+            <li>
+              إعداد تقرير مراقب الحسابات.
+            </li>
+
+            <li>
+              استكمال إعداد تقرير مراقب الحسابات.
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+      <!-- Original Image -->
+
+      <div class="training-document">
+
+        <div class="training-document-title">
+
+          <i class="fa-solid fa-file-image"></i>
+
+          عناصر تدريب ج المحاسبة والمراجعة
+        </div>
+
+
+        <img
+          src="training_images/Training_C_Accounting.jpg"
+          alt="تدريب ج تخصص المحاسبة والمراجعة"
+        >
+
+
+        <button
+          class="document-download-btn"
+          data-image="training_images/Training_C_Accounting.jpg"
+          data-name="Training_C_Accounting.jpg"
+        >
+
+          <i class="fa-solid fa-download"></i>
+
+          تحميل الصورة
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         MIS
+    ====================================================== -->
+
+    <div
+      class="specialization-content"
+      data-specialization-content="mis"
+      hidden
+    >
+
+      <div class="training-header">
+
+        <div class="training-title">
+
+          <div class="training-icon">
+            <i class="fa-solid fa-network-wired"></i>
+          </div>
+
+          <div>
+
+            <h2>
+              تدريب عملي ج — تخصص نظم معلومات الأعمال
+            </h2>
+
+            <p>
+              موضوعات التدريب التخصصي
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="training-code">
+          ITR 406
+        </div>
+
+      </div>
+
+
+      <div class="topics-grid">
+
+
+        <div class="topic-card">
+
+          <h3>
+            تطبيقات الإنترنت في منظمات الأعمال
+          </h3>
+
+          <ul>
+
+            <li>
+              مقدمة حول تطور الإنترنت وتأثيره على الأعمال.
+            </li>
+
+            <li>
+              الخدمات الحديثة للإنترنت:
+              الحوسبة السحابية، إنترنت الأشياء (IoT)،
+              الذكاء الاصطناعي السحابي.
+            </li>
+
+            <li>
+              طرق توصيل الشبكات المتقدمة:
+              الألياف البصرية، شبكات 5G،
+              تقنية SD-WAN.
+            </li>
+
+            <li>
+              التطبيقات الذكية في الأعمال:
+              تطبيقات SaaS، أنظمة ERP السحابية،
+              التعاون الافتراضي عبر الإنترنت.
+            </li>
+
+            <li>
+              الأمن السيبراني في تطبيقات الإنترنت:
+              حماية البيانات، إدارة الهوية والوصول (IAM)،
+              التشفير.
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <div class="topic-card">
+
+          <h3>
+            التجارة الإلكترونية وإدارة الأعمال الرقمية
+          </h3>
+
+          <ul>
+
+            <li>
+              مفاهيم متقدمة في التجارة الإلكترونية:
+              المنصات الرقمية، المتاجر الذكية،
+              التحليلات السلوكية للزبائن.
+            </li>
+
+            <li>
+              العملات الرقمية والبلوك تشين:
+              تأثير العملات المشفرة، العقود الذكية،
+              أمن المعاملات الإلكترونية.
+            </li>
+
+            <li>
+              إدارة الأعمال الرقمية:
+              الأتمتة، الذكاء الاصطناعي في الأعمال،
+              الروبوتات البرمجية (RPA).
+            </li>
+
+            <li>
+              أنظمة المشتريات والمبيعات الحديثة:
+              الأنظمة السحابية، منصات B2B،
+              تحليل البيانات لتحسين قرارات الشراء.
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <div class="topic-card">
+
+          <h3>
+            دراسة مكونات نظم المعلومات في الشركات
+          </h3>
+
+          <ul>
+
+            <li>
+              التطورات الحديثة في نظم المعلومات الإدارية
+              (MIS): التحول الرقمي،
+              الذكاء الاصطناعي في اتخاذ القرار.
+            </li>
+
+            <li>
+              تحليل البيانات واتخاذ القرار:
+              التحليلات التنبؤية، التعلم الآلي،
+              لوحات المعلومات التفاعلية (BI).
+            </li>
+
+            <li>
+              أنواع التقارير الحديثة:
+              تقارير البيانات الضخمة،
+              تقارير الأداء الفوري،
+              استخدام الواقع المعزز في عرض البيانات.
+            </li>
+
+            <li>
+              التحديات الحديثة لنظم المعلومات:
+              أمن البيانات، الامتثال للوائح (GDPR)،
+              (HIPAA)، إدارة المخاطر الإلكترونية.
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <div class="topic-card">
+
+          <h3>
+            الشبكات وتطوراتها الحديثة
+          </h3>
+
+          <ul>
+
+            <li>
+              تصميم الشبكات الحديثة:
+              الشبكات المعرفة بالبرمجيات (SDN)،
+              شبكات الجيل السادس 6G،
+              البنية التحتية السحابية.
+            </li>
+
+            <li>
+              أمن الشبكات وتحدياتها:
+              الجدران النارية الذكية،
+              أنظمة الكشف عن التسلل (IDS)،
+              استخدام الذكاء الاصطناعي في الأمن السيبراني.
+            </li>
+
+            <li>
+              تحليل النظم المتقدمة:
+              إنترنت الأشياء (IoT) في الشبكات،
+              تكامل الذكاء الاصطناعي مع النظم،
+              إدارة البنية التحتية ككود (IaC).
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+      <!-- Original Image -->
+
+      <div class="training-document">
+
+        <div class="training-document-title">
+
+          <i class="fa-solid fa-file-image"></i>
+
+         عناصر تدريب ج نظم معلومات الأعمال
+
+        </div>
+
+
+        <img
+          src="training_images/Training_C_MIS.jpg"
+          alt="تدريب ج تخصص نظم معلومات الأعمال"
+        >
+
+
+        <button
+          class="document-download-btn"
+          data-image="training_images/Training_C_MIS.jpg"
+          data-name="Training_C_MIS.jpg"
+        >
+
+          <i class="fa-solid fa-download"></i>
+
+          تحميل الصورة
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         MARKETING
+    ====================================================== -->
+
+    <div
+      class="specialization-content"
+      data-specialization-content="marketing"
+      hidden
+    >
+
+      <div class="training-header">
+
+        <div class="training-title">
+
+          <div class="training-icon">
+            <i class="fa-solid fa-bullhorn"></i>
+          </div>
+
+          <div>
+
+            <h2>
+              تدريب عملي ج — تخصص تسويق
+            </h2>
+
+            <p>
+              موضوعات التدريب التخصصي
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="training-code">
+          ITR 408
+        </div>
+
+      </div>
+
+
+      <div class="topics-grid">
+
+        <div class="topic-card">
+
+          <h3>
+            موضوعات التدريب
+          </h3>
+
+          <ul>
+
+            <li>
+              كيفية إعداد الخطط والبحوث التسويقية.
+            </li>
+
+            <li>
+              كيفية إعداد الحملات الترويجية.
+            </li>
+
+            <li>
+              استخدامات تقنيات الأعمال الإلكترونية
+              تسويقياً (التسويق الرقمي).
+            </li>
+
+            <li>
+              أدوات البيع والتقارير البيعية.
+            </li>
+
+            <li>
+              كيفية التوزيع والتسعير.
+            </li>
+
+            <li>
+              كيفية إدارة المنتجات.
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+      <!-- Original Image -->
+
+      <div class="training-document">
+
+        <div class="training-document-title">
+
+          <i class="fa-solid fa-file-image"></i>
+
+          عناصر تدريب ج تخصص تسويق
+        </div>
+
+
+        <img
+          src="training_images/Training_C_Marketing.jpg"
+          alt="تدريب ج تخصص التسويق"
+        >
+
+
+        <button
+          class="document-download-btn"
+          data-image="training_images/Training_C_Marketing.jpg"
+          data-name="Training_C_Marketing.jpg"
+        >
+
+          <i class="fa-solid fa-download"></i>
+
+          تحميل الصورة
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         ECONOMICS
+    ====================================================== -->
+
+    <div
+      class="specialization-content"
+      data-specialization-content="economics"
+      hidden
+    >
+
+      <div class="training-header">
+
+        <div class="training-title">
+
+          <div class="training-icon">
+            <i class="fa-solid fa-chart-column"></i>
+          </div>
+
+          <div>
+
+            <h2>
+              تدريب عملي ج — تخصص اقتصاديات التجارة الدولية
+            </h2>
+
+            <p>
+              موضوعات التدريب التخصصي
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="training-code">
+          ITR 420
+        </div>
+
+      </div>
+
+
+      <div class="topics-grid">
+
+
+        <div class="topic-card">
+
+          <h3>
+            التدريب على النظرية الاقتصادية
+          </h3>
+
+          <ul>
+
+            <li>
+              تقدير العرض والطلب والتنبؤ الاقتصادي.
+            </li>
+
+            <li>
+              تحليل تكاليف الإنتاج.
+            </li>
+
+            <li>
+              تحليل الأسواق (أنواع الأسواق).
+            </li>
+
+            <li>
+              الأسواق الاقتصادية الكلية.
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <div class="topic-card">
+
+          <h3>
+            اقتصاديات الصناعة والزراعة
+          </h3>
+
+          <ul>
+
+            <li>
+              مؤشرات الكفاءة والربحية.
+            </li>
+
+            <li>
+              السياسات المختلفة للتسعير.
+            </li>
+
+            <li>
+              الاندماج والاستحواذ.
+            </li>
+
+            <li>
+              اقتصاديات الطاقة والمصادر البديلة للطاقة.
+            </li>
+
+            <li>
+              دور القطاع الزراعي في اقتصاد الدولة.
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <div class="topic-card">
+
+          <h3>
+            الأسواق المالية والبنوك والاستيراد
+          </h3>
+
+          <ul>
+
+            <li>
+              البورصة والأوراق المالية.
+            </li>
+
+            <li>
+              نظم الاستيراد والتصدير والجمارك.
+            </li>
+
+            <li>
+              البنوك والائتمان.
+            </li>
+
+            <li>
+              اقتصاديات النقل والموانئ.
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+      <!-- Original Image -->
+
+      <div class="training-document">
+
+        <div class="training-document-title">
+
+          <i class="fa-solid fa-file-image"></i>
+
+          عناصر تدريب ج اقتصاديات التجارة الدولية
+        </div>
+
+
+        <img
+          src="training_images/Training_C_Economics.jpg"
+          alt="تدريب ج تخصص اقتصاديات التجارة الدولية"
+        >
+
+
+        <button
+          class="document-download-btn"
+          data-image="training_images/Training_C_Economics.jpg"
+          data-name="Training_C_Economics.jpg"
+        >
+
+          <i class="fa-solid fa-download"></i>
+
+          تحميل الصورة
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       FOOTER
+  ======================================================== -->
+
+  <footer>
+
+    <p>
+      © 2026 جميع الحقوق محفوظة
+    </p>
+
+    <p>
+      <b>
+        Design &amp; Development
+      </b>
+    </p>
+
+    <p>
+      Yousef Amin Abbas El-Assaily
+    </p>
+
+  </footer>
+
+
+</div>
+
+
+<script>
+
+  /* =========================================================
+     MAIN TRAINING TABS
+  ========================================================= */
+
+  const pills =
+    document.querySelectorAll(
+      ".pill[data-target]"
+    );
+
+  const sections =
+    document.querySelectorAll(
+      "section.content"
+    );
+
+
+  pills.forEach(button => {
+
+    button.addEventListener(
+      "click",
+      () => {
+
+        const target =
+          button.dataset.target;
+
+
+        pills.forEach(pill => {
+
+          pill.classList.remove(
+            "active"
+          );
+
+        });
+
+
+        button.classList.add(
+          "active"
+        );
+
+
+        sections.forEach(section => {
+
+          section.hidden =
+            section.id !== target;
+
+        });
+
+
+        window.scrollTo({
+
+          top: 0,
+
+          behavior: "smooth"
+
+        });
+
+      }
+    );
+
+  });
+
+
+  /* =========================================================
+     SPECIALIZATION TABS
+  ========================================================= */
+
+  const specializationButtons =
+    document.querySelectorAll(
+      ".specialization-btn"
+    );
+
+  const specializationContents =
+    document.querySelectorAll(
+      ".specialization-content"
+    );
+
+
+  specializationButtons.forEach(button => {
+
+    button.addEventListener(
+      "click",
+      () => {
+
+        const target =
+          button.dataset.specialization;
+
+
+        specializationButtons.forEach(btn => {
+
+          btn.classList.remove(
+            "active"
+          );
+
+        });
+
+
+        button.classList.add(
+          "active"
+        );
+
+
+        specializationContents.forEach(content => {
+
+          content.hidden =
+            content.dataset.specializationContent !== target;
+
+        });
+
+      }
+    );
+
+  });
+
+
+  /* =========================================================
+     DOWNLOAD TRAINING IMAGES
+  ========================================================= */
+
+  const downloadButtons =
+    document.querySelectorAll(
+      ".document-download-btn"
+    );
+
+
+  downloadButtons.forEach(button => {
+
+    button.addEventListener(
+      "click",
+      async () => {
+
+        const imagePath =
+          button.dataset.image;
+
+        const fileName =
+          button.dataset.name;
+
+
+        try {
+
+          const response =
+            await fetch(imagePath);
+
+
+          if (!response.ok) {
+            throw new Error(
+              "Image could not be loaded"
+            );
+          }
+
+
+          const blob =
+            await response.blob();
+
+
+          const blobUrl =
+            URL.createObjectURL(blob);
+
+
+          const link =
+            document.createElement("a");
+
+
+          link.href =
+            blobUrl;
+
+          link.download =
+            fileName;
+
+
+          document.body.appendChild(
+            link
+          );
+
+
+          link.click();
+
+
+          document.body.removeChild(
+            link
+          );
+
+
+          URL.revokeObjectURL(
+            blobUrl
+          );
+
+        }
+
+        catch (error) {
+
+          /*
+            Fallback:
+            فتح الصورة لو المتصفح أو
+            GitHub Pages منع التحميل المباشر.
+          */
+
+          const link =
+            document.createElement("a");
+
+
+          link.href =
+            imagePath;
+
+          link.target =
+            "_blank";
+
+          link.rel =
+            "noopener";
+
+
+          document.body.appendChild(
+            link
+          );
+
+
+          link.click();
+
+
+          document.body.removeChild(
+            link
+          );
+
+        }
+
+      }
+    );
+
+  });
+
+
+  /* =========================================================
+     DARK MODE
+  ========================================================= */
+
+  const themeToggle =
+    document.getElementById(
+      "themeToggle"
+    );
+
+  const themeIcon =
+    themeToggle.querySelector(
+      "i"
+    );
+
+
+  function updateThemeIcon() {
+
+    const dark =
+      document.documentElement
+        .classList
+        .contains("dark");
+
+
+    if (dark) {
+
+      themeIcon.className =
+        "fa-solid fa-sun";
+
+    }
+
+    else {
+
+      themeIcon.className =
+        "fa-solid fa-moon";
+
+    }
+
+  }
+
+
+  const savedTheme =
+    localStorage.getItem(
+      "unicourses-theme"
+    );
+
+
+  if (savedTheme === "dark") {
+
+    document.documentElement
+      .classList
+      .add("dark");
+
+  }
+
+
+  updateThemeIcon();
+
+
+  themeToggle.addEventListener(
+    "click",
+    () => {
+
+      document.documentElement
+        .classList
+        .toggle("dark");
+
+
+      const isDark =
+        document.documentElement
+          .classList
+          .contains("dark");
+
+
+      localStorage.setItem(
+        "unicourses-theme",
+        isDark
+          ? "dark"
+          : "light"
+      );
+
+
+      updateThemeIcon();
+
+    }
+  );
+
+</script>
+
+
+</body>
+
+</html>
