@@ -27,7 +27,7 @@
      <a href="home.html"><img class="logo" src="image/770745513_1717383286840018_6690213655912246753_n.jpg" alt="شعار المعهد" loading="lazy" /></a>
       <div class="brand">
         <h1>HTI — UniCourses</h1>
-        <p class="muted">Arabic_HTI</p>
+        <p class="muted">مجتمع طلاب HTI</p>
       </div>
 
       <div class="controls" role="toolbar" aria-label="أدوات الموقع">
@@ -131,7 +131,7 @@
       <h3 class="section-title">المرحلة الثانية</h3>
       <div class="grid">
         <article class="card">
-          <div class="thumb"><img src="image/IMG_٢٠٢٥١٠٢٣_٢١٠٥٢٥.jpg" alt="التيرم الاول" loading="lazy" /></div>
+          <div class="thumb"><img src="image/image-2.jpg" alt="التيرم الاول" loading="lazy" /></div>
           <span class="chip">التيرم الأول</span>
           <ul class="subjects">
              <li data-k="مبادئ تسويق">
@@ -869,7 +869,7 @@
         <div>
           <span class="course-modal__eyebrow">خريطة المتطلبات</span>
           <h2 id="courseModalTitle">المادة</h2>
-          <p id="courseModalSubtitle">المواد التي تفتح بعد اجتياز هذه المادة</p>
+          <p id="courseModalSubtitle"></p>
         </div>
       </div>
 
@@ -884,10 +884,7 @@
         <div id="unlockedCourses" class="unlocked-courses"></div>
       </div>
 
-      <div class="course-modal__footer">
-        <i class="fa-solid fa-circle-info"></i>
-        <span>هذه الخريطة توضح المواد التي تفتحها المادة الحالية فقط.</span>
-      </div>
+      
     </section>
   </div>
 
@@ -1227,9 +1224,7 @@
       [];
 
     courseModalTitle.textContent = courseName;
-    courseModalSubtitle.textContent = relationshipsForCourse.length
-      ? 'المواد التي تفتح بعد اجتياز هذه المادة'
-      : 'لا توجد مواد لاحقة مسجلة لهذه المادة في الخريطة الحالية';
+    courseModalSubtitle.style.display = 'none';
 
     const currentHref = anchor.getAttribute('href');
     currentCourseMaterial.innerHTML = `
