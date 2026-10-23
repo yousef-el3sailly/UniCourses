@@ -1,0 +1,1928 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>UniCourses | HTI</title>
+
+  <meta
+    name="description"
+    content="UniCourses — Academic resources and study plans for HTI students."
+  >
+
+  <meta
+    name="keywords"
+    content="UniCourses, HTI, Business Administration, Study Plan, Flowchart"
+  >
+
+  <meta
+    name="author"
+    content="YOUSEF A. EL3SAILLY | يوسف العسيلي"
+  >
+
+  <meta name="robots" content="index, follow">
+
+  <link rel="icon" type="image/png" href="image/icons8-u-64.png">
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  >
+
+  <style>
+
+    /* ========================================
+       VARIABLES
+    ======================================== */
+
+    :root {
+
+      --bg: #ebebf3;
+
+      --surface: #fbfbfe;
+
+      --surface-2: #e0e1ed;
+
+      --primary: #1d2662;
+
+      --primary-dark: #141b48;
+
+      --primary-light: #323d83;
+
+      --gold: #bc56c5;
+
+      --gold-light: #d787de;
+
+      --text: #171a2a;
+
+      --muted: #636783;
+
+      --border: #e3c5e6;
+
+      --shadow:
+        0 20px 60px rgba(22, 30, 78, 0.08);
+
+      --radius: 22px;
+    }
+
+
+    /* ========================================
+       DARK MODE
+    ======================================== */
+
+    body.dark {
+
+      --bg: #121318;
+
+      --surface: #191a22;
+
+      --surface-2: #1f202b;
+
+      --primary: #7f8bdc;
+
+      --primary-dark: #5d6ac3;
+
+      --primary-light: #9ba6e9;
+
+      --gold: #ca60d3;
+
+      --gold-light: #e289ea;
+
+      --text: #eaebf3;
+
+      --muted: #a3a7bf;
+
+      --border: #2d303e;
+
+      --shadow:
+        0 20px 60px rgba(0, 0, 0, 0.35);
+    }
+
+
+    /* ========================================
+       RESET
+    ======================================== */
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    body {
+
+      font-family: "Cairo", sans-serif;
+
+      background: var(--bg);
+
+      color: var(--text);
+
+      min-height: 100vh;
+
+      transition:
+        background 0.3s ease,
+        color 0.3s ease;
+
+      -webkit-font-smoothing: antialiased;
+    }
+
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+
+    /* ========================================
+       BACKGROUND DECORATION
+    ======================================== */
+
+    body::before {
+
+      content: "";
+
+      position: fixed;
+
+      width: 500px;
+      height: 500px;
+
+      top: -250px;
+      left: -200px;
+
+      background:
+        rgba(188, 86, 197, 0.08);
+
+      border-radius: 50%;
+
+      pointer-events: none;
+
+      z-index: -1;
+    }
+
+
+    body::after {
+
+      content: "";
+
+      position: fixed;
+
+      width: 450px;
+      height: 450px;
+
+      bottom: -250px;
+      right: -200px;
+
+      background:
+        rgba(29, 38, 98, 0.06);
+
+      border-radius: 50%;
+
+      pointer-events: none;
+
+      z-index: -1;
+    }
+
+
+    /* ========================================
+       HEADER
+    ======================================== */
+
+    header {
+
+      width: min(1200px, 92%);
+
+      margin: 25px auto 0;
+
+      padding: 15px 20px;
+
+      background:
+        rgba(251, 251, 254, 0.82);
+
+      backdrop-filter: blur(15px);
+
+      -webkit-backdrop-filter: blur(15px);
+
+      border: 1px solid var(--border);
+
+      border-radius: 18px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      box-shadow:
+        0 8px 30px rgba(23, 30, 75, 0.05);
+
+      position: relative;
+
+      z-index: 10;
+    }
+
+
+    body.dark header {
+
+      background:
+        rgba(25, 26, 34, 0.85);
+    }
+
+
+    /* ========================================
+       BRAND
+    ======================================== */
+
+    .brand {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 12px;
+    }
+
+
+    .brand-logo {
+
+      width: 48px;
+      height: 48px;
+
+      border-radius: 14px;
+
+      object-fit: cover;
+
+      border: 2px solid var(--gold);
+
+      transition: 0.3s ease;
+    }
+
+
+    .brand:hover .brand-logo {
+
+      transform:
+        rotate(-3deg)
+        scale(1.04);
+    }
+
+
+    .brand-text {
+
+      display: flex;
+
+      flex-direction: column;
+
+      line-height: 1.2;
+    }
+
+
+    .brand-text strong {
+
+      font-size: 18px;
+
+      color: var(--primary);
+
+      font-weight: 800;
+    }
+
+
+    .brand-text span {
+
+      font-size: 11px;
+
+      color: var(--muted);
+
+      letter-spacing: 1px;
+    }
+
+
+    /* ========================================
+       HEADER ACTIONS
+    ======================================== */
+
+    .header-actions {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+    }
+
+
+    .theme-btn {
+
+      width: 42px;
+      height: 42px;
+
+      border-radius: 50%;
+
+      border: 1px solid var(--border);
+
+      background: var(--surface);
+
+      color: var(--primary);
+
+      cursor: pointer;
+
+      transition: 0.3s ease;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      font-size: 15px;
+    }
+
+
+    .theme-btn:hover {
+
+      transform: translateY(-2px);
+
+      background: var(--grad, var(--primary));
+
+      color: white;
+
+      border-color: var(--primary);
+    }
+
+
+    /* ========================================
+       HERO
+    ======================================== */
+
+    .hero {
+
+      width: min(1200px, 92%);
+
+      margin: 70px auto 80px;
+
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 70px;
+
+      align-items: center;
+
+      min-height: 570px;
+    }
+
+
+    /* ========================================
+       HERO CONTENT
+    ======================================== */
+
+    .hero-content {
+
+      animation:
+        fadeUp 0.8s ease forwards;
+    }
+
+
+    .badge {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      padding: 8px 14px;
+
+      border-radius: 999px;
+
+      background: var(--surface-2);
+
+      border: 1px solid var(--border);
+
+      color: var(--primary);
+
+      font-size: 13px;
+
+      font-weight: 700;
+
+      margin-bottom: 25px;
+    }
+
+
+    .badge i {
+
+      color: var(--gold);
+    }
+
+
+    .hero h1 {
+
+      font-size:
+        clamp(42px, 5vw, 70px);
+
+      line-height: 1.1;
+
+      font-weight: 800;
+
+      letter-spacing: -2px;
+
+      margin-bottom: 22px;
+    }
+
+
+    .hero h1 span {
+
+      color: var(--primary);
+    }
+
+
+    .hero-description {
+
+      max-width: 570px;
+
+      color: var(--muted);
+
+      font-size: 17px;
+
+      line-height: 2;
+
+      margin-bottom: 0;
+    }
+
+
+    /* ========================================
+       HERO VISUAL
+    ======================================== */
+
+    .hero-visual {
+
+      position: relative;
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+    }
+
+
+    /* ========================================
+       MAIN CARD
+    ======================================== */
+
+    .main-card {
+
+      width: 100%;
+
+      max-width: 480px;
+
+      padding: 32px;
+
+      background: var(--surface);
+
+      border: 1px solid var(--border);
+
+      border-radius: 28px;
+
+      box-shadow: var(--shadow);
+
+      position: relative;
+
+      overflow: hidden;
+
+      animation:
+        fadeUp 1s ease forwards;
+    }
+
+
+    .main-card::before {
+
+      content: "";
+
+      position: absolute;
+
+      width: 180px;
+      height: 180px;
+
+      background:
+        rgba(188, 86, 197, 0.09);
+
+      border-radius: 50%;
+
+      top: -90px;
+      right: -90px;
+
+      pointer-events: none;
+    }
+
+
+    /* ========================================
+       PROFILE
+    ======================================== */
+
+    .profile-wrapper {
+
+      display: flex;
+
+      justify-content: center;
+
+      margin-bottom: 25px;
+    }
+
+
+    .profile-img {
+
+      width: 125px;
+      height: 125px;
+
+      border-radius: 50%;
+
+      object-fit: cover;
+
+      border: 5px solid var(--surface);
+
+      outline: 2px solid var(--gold);
+
+      box-shadow:
+        0 15px 35px rgba(29, 38, 98, 0.15);
+
+      transition: 0.4s ease;
+    }
+
+
+    .profile-img:hover {
+
+      transform:
+        scale(1.05)
+        rotate(2deg);
+
+      box-shadow:
+        0 18px 40px rgba(29, 38, 98, 0.20);
+    }
+
+
+    /* ========================================
+       CARD TITLE
+    ======================================== */
+
+    .card-title {
+
+      text-align: center;
+
+      margin-bottom: 25px;
+    }
+
+
+    .card-title h2 {
+
+      font-size: 25px;
+
+      color: var(--text);
+
+      margin-bottom: 5px;
+    }
+
+
+    .card-title p {
+
+      font-size: 13px;
+
+      color: var(--muted);
+    }
+
+
+    /* ========================================
+       OPTIONS
+    ======================================== */
+
+    .options {
+
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 12px;
+    }
+
+
+    .option {
+
+      min-height: 115px;
+
+      padding: 18px;
+
+      background: var(--surface-2);
+
+      border: 1px solid var(--border);
+
+      border-radius: 17px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: space-between;
+
+      transition: 0.3s ease;
+
+      position: relative;
+
+      overflow: hidden;
+    }
+
+
+    .option::after {
+
+      content: "";
+
+      position: absolute;
+
+      width: 70px;
+      height: 70px;
+
+      background:
+        rgba(29, 38, 98, 0.06);
+
+      border-radius: 50%;
+
+      right: -30px;
+      bottom: -30px;
+
+      transition: 0.3s ease;
+    }
+
+
+    .option:hover,
+    .option:focus-visible {
+
+      transform: translateY(-5px);
+
+      border-color: var(--accent, var(--primary));
+
+      box-shadow:
+        0 12px 30px rgba(29, 38, 98, 0.10);
+    }
+
+
+    .option:hover::after,
+    .option:focus-visible::after {
+
+      transform: scale(1.5);
+    }
+
+
+    /* Keyboard focus — clear accent ring */
+
+    .option:focus-visible {
+
+      outline:
+        2px solid var(--accent, var(--primary));
+
+      outline-offset:
+        3px;
+    }
+
+
+    .option:hover .option-icon,
+    .option:focus-visible .option-icon {
+
+      transform:
+        translateY(-2px) scale(1.07);
+
+      box-shadow:
+        0 12px 24px color-mix(in srgb, var(--accent, var(--primary)) 35%, transparent);
+    }
+
+
+
+    /* ========================================
+       OPTION ICON
+    ======================================== */
+
+    .option-icon {
+
+      width: 38px;
+      height: 38px;
+
+      border-radius: 11px;
+
+      background: var(--accent, var(--grad, var(--primary)));
+
+      color: white;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      font-size: 15px;
+
+      position: relative;
+
+      z-index: 2;
+    }
+
+
+    .option h3 {
+
+      font-size: 14px;
+
+      margin-top: 12px;
+
+      color: var(--text);
+
+      position: relative;
+
+      z-index: 2;
+    }
+
+
+    .option p {
+
+      font-size: 11px;
+
+      color: var(--muted);
+
+      margin-top: 2px;
+
+      position: relative;
+
+      z-index: 2;
+    }
+
+
+    /* ========================================
+       ICON COLORS — ONE ACCENT PER CARD
+    ======================================== */
+
+    .option-icon {
+
+      box-shadow:
+        0 8px 18px rgba(23, 30, 75, 0.16);
+
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+
+    .option--arabic {
+
+      --accent: #1d2662;
+    }
+
+    .option--english {
+
+      --accent: #0d9488;
+    }
+
+    .option--plan {
+
+      --accent: #7c3aed;
+    }
+
+    .option--flow {
+
+      --accent: #d23be6;
+    }
+
+    .computer-science-option {
+
+      --accent: #2f7bff;
+    }
+
+    .summer-training-option {
+
+      --accent: #e2871b;
+    }
+
+
+
+    /* ========================================
+       LANGUAGE OPTIONS ROW (AR / EN)
+    ======================================== */
+
+
+    .options-langs {
+
+      grid-column: 1 / -1;
+
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 12px;
+    }
+
+
+    /* ========================================
+       FOOTER
+    ======================================== */
+
+
+    footer {
+
+      width: min(1200px, 92%);
+
+      margin: 0 auto 25px;
+
+      padding-top: 25px;
+
+      border-top: 1px solid var(--border);
+
+      text-align: center;
+
+      color: var(--muted);
+
+      font-size: 12px;
+    }
+
+
+    footer span {
+
+      color: var(--primary);
+
+      font-weight: 700;
+    }
+
+
+    footer strong {
+
+      color: var(--primary);
+
+      font-weight: 800;
+
+      transition: 0.3s ease;
+    }
+
+
+    footer strong:hover {
+
+      color: var(--gold);
+    }
+
+
+    /* ========================================
+       ANIMATION
+    ======================================== */
+
+    @keyframes fadeUp {
+
+      from {
+
+        opacity: 0;
+
+        transform:
+          translateY(25px);
+      }
+
+      to {
+
+        opacity: 1;
+
+        transform:
+          translateY(0);
+      }
+    }
+
+
+    /* ========================================
+       RESPONSIVE TABLET
+    ======================================== */
+
+    @media (max-width: 900px) {
+
+      .hero {
+
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+
+        margin-top: 50px;
+
+        min-height: auto;
+
+        text-align: center;
+      }
+
+
+      .hero-content {
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+      }
+
+
+      .hero-description {
+
+        max-width: 650px;
+      }
+
+
+      .hero-visual {
+
+        order: 2;
+      }
+
+
+      .main-card {
+
+        max-width: 600px;
+      }
+
+    }
+
+
+    /* ========================================
+       RESPONSIVE MOBILE
+    ======================================== */
+
+   @media (max-width: 600px) {
+
+  header {
+    width: 94%;
+    margin-top: 15px;
+    padding: 12px 15px;
+  }
+
+  .brand-logo {
+    width: 42px;
+    height: 42px;
+  }
+
+  .brand-text strong {
+    font-size: 15px;
+  }
+
+  .brand-text span {
+    font-size: 9px;
+  }
+
+  .hero {
+    width: 94%;
+    margin-top: 40px;
+    margin-bottom: 50px;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+    letter-spacing: -1px;
+  }
+
+  .hero-description {
+    font-size: 14px;
+    line-height: 1.9;
+  }
+
+  .main-card {
+    padding: 22px;
+    border-radius: 22px;
+  }
+
+  .profile-img {
+    width: 105px;
+    height: 105px;
+  }
+
+  .card-title h2 {
+    font-size: 22px;
+  }
+
+  .options {
+    grid-template-columns: 1fr;
+  }
+
+  .option {
+    min-height: 95px;
+  }
+
+  /* Arabic + English stay side by side, compact & chic */
+  .options-langs {
+    grid-column: 1 / -1;
+    gap: 9px;
+  }
+
+  .options-langs .option {
+    min-height: 0;
+    padding: 13px 10px;
+    border-radius: 15px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .options-langs .option-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    font-size: 13px;
+    margin: 0 auto;
+  }
+
+  .options-langs .option h3 {
+    font-size: 11.5px;
+    line-height: 1.55;
+    margin-top: 8px;
+  }
+
+  .options-langs .option p {
+    font-size: 10px;
+  }
+
+
+
+  footer {
+    width: 94%;
+  }
+
+}
+
+
+    /* ========================================
+       SMALL MOBILE
+    ======================================== */
+
+    @media (max-width: 400px) {
+
+      .hero h1 {
+
+        font-size: 34px;
+      }
+
+
+      .hero-description {
+
+        font-size: 13px;
+      }
+
+
+      .main-card {
+
+        padding: 18px;
+      }
+
+
+      .option {
+
+        min-height: 90px;
+
+        padding: 16px;
+      }
+
+      .options-langs .option {
+
+        min-height: 0;
+
+        padding: 11px 8px;
+      }
+
+
+    }
+
+    /* ================================
+   COMPUTER SCIENCE
+================================ */
+
+.computer-science-option {
+  grid-column: 1 / -1;
+  min-height: 105px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+
+
+/* أيقونة Computer Science */
+
+.computer-science-option .option-icon {
+  width: 64px;
+  height: 64px;
+
+  min-width: 64px;
+  min-height: 64px;
+
+  border-radius: 15px;
+
+  background: var(--accent);
+  color: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 20px;
+
+  box-shadow:
+    0 6px 16px rgba(29, 38, 98, 0.16);
+
+  position: relative;
+  z-index: 2;
+}
+
+
+/* المحتوى */
+
+.computer-science-option > div:last-child {
+  position: relative;
+  z-index: 2;
+}
+
+.computer-science-option h3 {
+  margin-top: 0;
+  font-size: 15px;
+}
+
+.computer-science-option p {
+  margin-top: 4px;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+  .computer-science-option {
+    grid-column: auto;
+    min-height: 95px;
+    gap: 14px;
+  }
+
+  .computer-science-option .option-icon {
+    width: 58px;
+    height: 58px;
+
+    min-width: 58px;
+    min-height: 58px;
+
+    border-radius: 14px;
+    font-size: 18px;
+  }
+
+  .computer-science-option h3 {
+    font-size: 14px;
+  }
+
+  .computer-science-option p {
+    font-size: 10px;
+  }
+
+}
+
+  
+    /* ========================================
+       SUMMER TRAINING - FULL WIDTH
+    ======================================== */
+
+    .summer-training-option {
+      grid-column: 1 / -1;
+      min-height: 105px;
+
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .summer-training-option .option-icon {
+      width: 64px;
+      height: 64px;
+      min-width: 64px;
+      min-height: 64px;
+
+      border-radius: 15px;
+      background: var(--accent);
+      color: #fff;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 20px;
+
+      box-shadow:
+        0 6px 16px rgba(29, 38, 98, 0.16);
+
+      position: relative;
+      z-index: 2;
+    }
+
+    .summer-training-option > div:last-child {
+      position: relative;
+      z-index: 2;
+    }
+
+    .summer-training-option h3 {
+      margin-top: 0;
+      font-size: 15px;
+    }
+
+    .summer-training-option p {
+      margin-top: 4px;
+    }
+
+    @media (max-width: 600px) {
+
+      .summer-training-option {
+        grid-column: auto;
+        min-height: 95px;
+        gap: 14px;
+      }
+
+      .summer-training-option .option-icon {
+        width: 58px;
+        height: 58px;
+        min-width: 58px;
+        min-height: 58px;
+        border-radius: 14px;
+        font-size: 18px;
+      }
+
+      .summer-training-option h3 {
+        font-size: 14px;
+      }
+
+      .summer-training-option p {
+        font-size: 10px;
+      }
+
+    }
+
+
+    /* ========================================
+       NEWS x UNICOURSES — PARTNER CARD
+    ======================================== */
+
+    .news-partner-option {
+      grid-column: 1 / -1;
+      --accent: #e0102a;
+      min-height: 105px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 16px;
+      background:
+        linear-gradient(100deg,
+          rgba(224, 16, 42, 0.07),
+          rgba(124, 58, 237, 0.05) 50%,
+          rgba(0, 163, 255, 0.08)),
+        var(--surface-2);
+    }
+
+    body.dark .news-partner-option {
+      background:
+        linear-gradient(100deg,
+          rgba(224, 16, 42, 0.15),
+          rgba(124, 58, 237, 0.12) 50%,
+          rgba(0, 163, 255, 0.14)),
+        var(--surface-2);
+    }
+
+    .news-partner-option .news-logo-tile {
+      width: 64px;
+      height: 64px;
+      min-width: 64px;
+      min-height: 64px;
+      border-radius: 16px;
+      background: #05060a;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      padding: 5px;
+      box-shadow:
+        0 6px 16px rgba(29, 38, 98, 0.16);
+      position: relative;
+      z-index: 2;
+    }
+
+    .news-partner-option .news-logo-tile img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .news-partner-option > div:nth-child(2) {
+      position: relative;
+      z-index: 2;
+      min-width: 0;
+    }
+
+    .news-partner-option h3 {
+      margin-top: 0;
+      font-size: 15px;
+    }
+
+    .news-partner-option p {
+      margin-top: 4px;
+      line-height: 1.7;
+      text-align: left;
+    }
+
+    .news-chip {
+      position: relative;
+      z-index: 2;
+      margin-inline-start: auto;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 9.5px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      color: #fff;
+      background:
+        linear-gradient(100deg, #00a3ff, #681be5 55%, #e61c90);
+      box-shadow:
+        0 6px 14px rgba(104, 27, 229, 0.26);
+    }
+
+    .news-external {
+      position: relative;
+      z-index: 2;
+      margin-inline-start: 10px;
+      color: var(--accent);
+      font-size: 13px;
+      opacity: 0.7;
+      transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+    }
+
+    body.dark .news-external {
+      color: #ff5f72;
+      opacity: 0.85;
+    }
+
+    .news-partner-option:hover .news-external,
+    .news-partner-option:focus-visible .news-external {
+      opacity: 1;
+      transform: translate(3px, -3px);
+    }
+
+    @media (max-width: 600px) {
+
+      .news-partner-option {
+        min-height: 92px;
+        gap: 13px;
+        padding: 14px 15px;
+      }
+
+      .news-partner-option .news-logo-tile {
+        width: 52px;
+        height: 52px;
+        min-width: 52px;
+        min-height: 52px;
+        border-radius: 14px;
+        padding: 4px;
+      }
+
+      .news-partner-option h3 {
+        font-size: 13.5px;
+      }
+
+      .news-partner-option p {
+        font-size: 10.5px;
+      }
+
+      .news-chip {
+        font-size: 8.5px;
+        padding: 3px 8px;
+      }
+
+      .news-external {
+        font-size: 11px;
+        margin-inline-start: 8px;
+      }
+    }
+
+</style>
+
+<link rel="stylesheet" href="/style/theme.css">
+</head>
+
+
+<body>
+
+
+  <!-- ========================================
+       HEADER
+  ======================================== -->
+
+  <header>
+
+    <a
+      href="/home.html"
+      class="brand"
+    >
+
+      <img
+        src="image/icons8-u-64.png"
+        alt="UniCourses"
+        class="brand-logo"
+      >
+
+      <div class="brand-text">
+
+        <strong>
+          UniCourses
+        </strong>
+
+        <span>
+          HTI ACADEMIC HUB
+        </span>
+
+      </div>
+
+    </a>
+
+
+    <div class="header-actions">
+
+      <button
+        class="theme-btn"
+        id="theme-toggle"
+        aria-label="Toggle dark mode"
+      >
+
+        <i
+          class="fa-solid fa-moon"
+        ></i>
+
+      </button>
+
+    </div>
+
+  </header>
+
+
+  <!-- ========================================
+       MAIN
+  ======================================== -->
+
+  <main>
+
+    <section class="hero">
+
+
+      <!-- ====================================
+           HERO CONTENT
+      ===================================== -->
+
+      <div class="hero-content">
+
+        <div class="badge">
+
+          <i
+            class="fa-solid fa-graduation-cap"
+          ></i>
+
+          HTI | UniCourses
+
+        </div>
+
+
+        <h1>
+
+          Your Academic
+
+          <br>
+
+          <span>
+            Journey Starts Here.
+          </span>
+
+        </h1>
+
+
+        <p class="hero-description">
+
+          UniCourses is your simple academic hub
+          for exploring study plans, courses,
+          flowcharts and educational resources
+          for HTI students — all in one place.
+
+        </p>
+
+      </div>
+
+
+      <!-- ====================================
+           OPTIONS CARD
+      ===================================== -->
+
+      <div class="hero-visual">
+
+        <div class="main-card">
+
+
+          <!-- Profile -->
+
+          <div class="profile-wrapper">
+
+            <img
+              src="image/770745513_1717383286840018_6690213655912246753_n.jpg"
+              alt="UniCourses"
+              class="profile-img"
+              loading="eager"
+            >
+
+          </div>
+
+
+          <!-- Card Title -->
+
+          <div class="card-title">
+
+            <h2>
+              Explore UniCourses
+            </h2>
+
+            <p>
+              Everything you need for your academic journey.
+            </p>
+
+          </div>
+
+
+          <!-- Options -->
+
+          <div class="options">
+
+            <div class="options-langs">
+
+            <!-- =================================
+                 Arabic
+            ================================== -->
+
+
+            <a
+              href="UniCourses_arabic.html"
+              class="option option--arabic"
+              aria-label="Business Administration Arabic"
+            >
+
+              <div class="option-icon">
+
+                <i
+                  class="fa-solid fa-book-open"
+                ></i>
+
+              </div>
+
+              <div>
+
+                <h3>
+                  Business Administration Arabic
+                </h3>
+
+                <p>
+                  Arabic academic courses
+                </p>
+
+              </div>
+
+            </a>
+
+
+            <!-- =================================
+                 English
+            ================================== -->
+
+            <a
+              href="UniCourses_english.html"
+              class="option option--english"
+              aria-label="Business Administration English"
+            >
+
+              <div class="option-icon">
+
+                <i
+                  class="fa-solid fa-globe"
+                ></i>
+
+              </div>
+
+              <div>
+
+                <h3>
+                  Business Administration English
+                </h3>
+
+                <p>
+                  English academic courses
+                </p>
+
+              </div>
+
+            </a>
+
+            </div>
+
+
+            <!-- =================================
+                 Study Plan
+            ================================== -->
+
+
+            <a
+              href="study_plan.html"
+              class="option option--plan"
+              aria-label="Study Plan"
+            >
+
+              <div class="option-icon">
+
+                <i
+                  class="fa-solid fa-list-check"
+                ></i>
+
+              </div>
+
+              <div>
+
+                <h3>
+                  Study Plan
+                </h3>
+
+                <p>
+                  Explore your academic plan
+                </p>
+
+              </div>
+
+            </a>
+
+
+            <!-- =================================
+                 Flowchart
+            ================================== -->
+
+            <a
+              href="flowchart.html"
+              class="option option--flow"
+              aria-label="Academic Flowchart"
+            >
+
+              <div class="option-icon">
+
+                <i
+                  class="fa-solid fa-diagram-project"
+                ></i>
+
+              </div>
+
+              <div>
+
+                <h3>
+                  Flowchart
+                </h3>
+
+                <p>
+                  View your academic journey
+                </p>
+
+              </div>
+
+            </a>
+            <!-- =================================
+                 Summer Training
+            ================================== -->
+
+            <a
+              href="summer-tranning.html"
+              class="option summer-training-option"
+              aria-label="Summer Training"
+            >
+
+              <div class="option-icon">
+
+                <i
+                  class="fa-solid fa-briefcase"
+                ></i>
+
+              </div>
+
+              <div>
+
+                <h3>
+                  Summer Training
+                </h3>
+
+                <p>
+                  Training requirements and topics
+                </p>
+
+              </div>
+
+            </a>
+
+
+            <!-- =================================
+     COMPUTER SCIENCE
+================================== -->
+
+<a
+  href="computer_science.html"
+  class="option computer-science-option"
+  aria-label="Computer Science"
+>
+
+  <div class="option-icon">
+
+    <i
+      class="fa-solid fa-laptop-code"
+    ></i>
+
+  </div>
+
+  <div>
+
+    <h3>
+      Computer Science
+    </h3>
+
+   
+
+  </div>
+
+</a>
+
+
+            <!-- =================================
+                 NEWS x UniCourses — partner site
+            ================================== -->
+
+            <a
+              href="https://news-hti.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="option news-partner-option"
+              aria-label="NEWS x UniCourses — opens the partner site in a new tab"
+            >
+
+              <div class="option-icon news-logo-tile">
+
+                <img
+                  src="/__l5e/assets-v1/6633623c-d79c-426d-a892-7869aa4ce19e/news-hti-logo.png"
+                  alt="NEWS x UniCourses"
+                  loading="lazy"
+                >
+
+              </div>
+
+              <div>
+
+                <h3>
+                  NEWS &times; UniCourses
+                </h3>
+
+                <p
+                  dir="rtl"
+                  lang="ar"
+                >
+                  أخبار وفعاليات HTI، منشئ الجدول الدراسي ومصادر المواد
+                </p>
+
+              </div>
+
+              <span class="news-chip">
+                NEW
+              </span>
+
+              <i
+                class="fa-solid fa-arrow-up-right-from-square news-external"
+                aria-hidden="true"
+              ></i>
+
+            </a>
+
+            
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ========================================
+       FOOTER
+  ======================================== -->
+
+  <footer>
+
+    © 2026 جميع الحقوق محفوظة —
+
+    <span>
+      UniCourses
+    </span>
+
+    <br>
+
+    Design & Development by
+
+    <br>
+
+    <strong>
+      Yousef Amin Abbas El-Assaily
+    </strong>
+
+  </footer>
+
+
+  <!-- ========================================
+       DARK MODE
+  ======================================== -->
+
+  <script>
+
+    const themeButton =
+      document.getElementById(
+        "theme-toggle"
+      );
+
+
+    const icon =
+      themeButton.querySelector("i");
+
+
+    /* Load saved theme */
+
+    const savedTheme =
+      localStorage.getItem(
+        "theme"
+      );
+
+
+    if (savedTheme === "dark") {
+
+      document.body.classList.add(
+        "dark"
+      );
+
+      icon.className =
+        "fa-solid fa-sun";
+
+    }
+
+
+    /* Toggle theme */
+
+    themeButton.addEventListener(
+      "click",
+      () => {
+
+        document.body.classList.toggle(
+          "dark"
+        );
+
+
+        const isDark =
+          document.body.classList.contains(
+            "dark"
+          );
+
+
+        localStorage.setItem(
+          "theme",
+          isDark
+            ? "dark"
+            : "light"
+        );
+
+
+        icon.className =
+          isDark
+            ? "fa-solid fa-sun"
+            : "fa-solid fa-moon";
+
+      }
+    );
+
+  </script>
+
+
+</body>
+
+</html>
