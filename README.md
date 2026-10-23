@@ -1,12 +1,10 @@
 # Logo Harmony
 
-عايزك تظبتلي تصميم الموقع ده ويكون لايق علي اللوجو بتاعه اللي حطتهولك في icons8-u-64
 
-This project was built with [Lovable](https://lovable.dev).
+
 
 ## Build with Lovable
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/774e7b69-0420-49e1-866f-5ef1be2c47e5).
 
 - **Ship faster**: describe what you want to build and Lovable handles the code.
 - **Stay in sync**: every change made in Lovable is committed straight to this repository.
